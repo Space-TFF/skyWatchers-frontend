@@ -6,7 +6,10 @@ class Header extends React.Component {
     render() {
         return (
 
-            <Navbar bg="light" variant="light">
+            <Navbar 
+            // className='background'
+            bg="black" 
+            variant="dark">
                 <Container>
                     <img
                         src={require('../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg')}
