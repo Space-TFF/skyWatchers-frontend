@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 let SERVER = process.env.REACT_APP_SERVER;
-let yourClientId = 1
+let yourClientId = 1;
 
 class App extends React.Component {
 
@@ -19,13 +19,13 @@ class App extends React.Component {
         authorizationParams={{
           redirect_uri: window.location.origin
         }}>
-      <>
+        <>
 
-        <Header />
-        <Outlet />
-        <Footer />
+          <Header />
+          <Outlet />
+          <Footer />
 
-      </>
+        </>
       </Auth0Provider>
     );
   }

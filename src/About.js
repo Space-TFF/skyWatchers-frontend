@@ -5,9 +5,9 @@ import './Aboutus.css';
 class Aboutus extends React.Component {
   render() {
     return (
-<>
-<p>This is the Aboutus Page</p>
-</>
+      <>
+        <p>This is the Aboutus Page</p>
+      </>
     );
   }
 }
