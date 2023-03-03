@@ -1,18 +1,20 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import AuthButtons from './AuthButtons.js'
+import AuthButtons from '../AuthButtons/AuthButtons.js'
+import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg'
+
 class Header extends React.Component {
     render() {
         return (
 
-            <Navbar 
-            // className='background'
-            bg="black" 
-            variant="dark">
+            <Navbar
+                // className='background'
+                bg="black"
+                variant="dark">
                 <Container>
                     <img
-                        src={require('../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg')}
+                        src={headerImage}
                         width='50'
                         height='50'
                         className="d-inline-block align-top"
@@ -25,7 +27,7 @@ class Header extends React.Component {
                         <Nav.Link href='/eclipse'>Eclipse 2024</Nav.Link>
                         <Nav.Link href='/resources'>Resources</Nav.Link>
                         <Nav.Link href='/about'>About Us</Nav.Link>
-                        <AuthButtons/>
+                        <AuthButtons />
                     </Nav>
 
                 </Container>
