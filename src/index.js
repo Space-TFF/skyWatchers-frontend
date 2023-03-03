@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App.js';
-import About from './About.js';
+import About from './components/About/About.js';
 
 import {
   createBrowserRouter,
@@ -11,12 +11,12 @@ import {
   createRoutesFromElements,
   Route
 } from "react-router-dom";
-import Resources from './Resources.js';
+import Resources from './components/Resources/Resources';
 // import Skywatch from './Skywatch.js';
-import Eclipse from './Eclipse.js';
+import Eclipse from './components/Eclipse/Eclipse.js';
 // import Spacewatch from './Spacewatch.js';
-import Home from './Home.js';
-import Error from './components/Error.js';
+import Home from './components/Home/Home.js';
+import Error from './components/Error/Error.js';
 // import { Auth0Provider } from "@auth0/auth0-react";
 
 
@@ -30,15 +30,13 @@ const router = createBrowserRouter(
     </Route>
   )
 );
-                            
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
- root.render(
-  <React.StrictMode>
+root.render(
     <RouterProvider router={router} />
-  </React.StrictMode>,
 
- );
+);
 
 
 //ReactDOM.render(
