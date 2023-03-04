@@ -8,11 +8,12 @@ class Footer extends React.Component {
       <Navbar collapseOnSelect expand="lg" bg="black"
       variant="dark" className='footer'>
         <div className='container'>
-          <Navbar.Brand> &copy;2023 
+          <Navbar.Brand> 
             <span className='footer-names'>
-              Eva Grace Smith  &amp;  
-              Susan Hargus  &amp;  
-              Mike Pace
+              <p>&copy;2023</p>
+              <p>Eva Grace Smith  &amp;</p>  
+              <p>Susan Hargus  &amp;</p> 
+              <p>Mike Pace</p>
             </span>
           </Navbar.Brand>
         </div>

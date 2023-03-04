@@ -1,21 +1,11 @@
 .bg-black {
     background-color: black !important;
-    /* color:white; */
-    color: #61dafb;
+    color:white;
 }
 
-h1 {
+h1{
     background-color: black;
     text-align: center;
     color: white;
     padding: 10px;
-}
-.me-auto {
-    display:flex;
-    justify-content: space-between;
-}
-
-.logIn {
-    display: flex;
-    justify-content: right;
 }

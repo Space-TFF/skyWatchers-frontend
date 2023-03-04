@@ -2,10 +2,10 @@ import React from 'react';
 
 import '../About/Aboutus.css';
 
-import SusanHargus from '../../img/SusanHargus.jpg'
-import MikePace from '../../img/MikePace.jpg'
-import JackStubblefield from '../../img/JackStubblefield.jpg'
-import EvaGrace from '../../img/EvaGrace.jpg'
+import SusanHargus from '../../img/SusanHargus.jpg';
+import MikePace from '../../img/MikePace.jpg';
+import JackStubblefield from '../../img/JackStubblefield.jpg';
+import EvaGrace from '../../img/EvaGrace.jpg';
 import { Container } from 'react-bootstrap';
 
 

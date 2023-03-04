@@ -10,7 +10,7 @@ class Header extends React.Component {
         return (
 
             <Navbar bg="black" variant="dark">
-                <Container>
+                <Container className="navBar">
                     <img
                         src={headerImage}
                         width='50'
