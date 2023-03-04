@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 
+// import { withAuth0 } from "@auth0/auth0-react";
 let AUTHSERVER = process.env.REACT_APP_DOMAIN;
 let yourClientId = process.env.REACT_APP_CLIENTID;
 

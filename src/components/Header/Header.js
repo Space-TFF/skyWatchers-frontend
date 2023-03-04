@@ -34,7 +34,7 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withAuth0(Header);
 
 //<Nav.Link href='/skywatch'>Sky Watch</Nav.Link>
 //<Nav.Link href='/spacewatch'>Space Watch</Nav.Link>
