@@ -1,6 +1,7 @@
 .bg-black {
     background-color: black !important;
-    color:white;
+    /* color:white; */
+    color: #61dafb;
 }
 
 h1 {
@@ -12,4 +13,9 @@ h1 {
 .me-auto {
     display:flex;
     justify-content: space-between;
+}
+
+.logIn {
+    display: flex;
+    justify-content: right;
 }
