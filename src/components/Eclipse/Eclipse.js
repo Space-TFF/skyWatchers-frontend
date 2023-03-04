@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import './Eclipse.css';
-import EventMap from '../EventMap/EventMap';
+import EventMarker from '../EventMarker/EventMarker';
 const MAP_KEY = process.env.REACT_APP_MAP_KEY;
 
 //* default coords for the map to center on
@@ -29,14 +29,16 @@ class Eclipse extends React.Component {
                         bootstrapURLKeys={{ key: MAP_KEY }}
                         defaultCenter={defaultProps.center}
                         defaultZoom={defaultProps.zoom}
+                        yesIWantToUseGoogleMapApiInternals
+
                     >
 
-                        <EventMap
+                        <EventMarker
                             lat={41.98892477299115}
                             lng={-91.65726894724021}
                             text="Coe College"
                         />
-                        <EventMap
+                        <EventMarker
                             lat={41.971187159763886}
                             lng={-91.6559992135134}
                             text="DeltaV Code School"
