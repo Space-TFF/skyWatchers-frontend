@@ -35,7 +35,7 @@ export default function FormDialog() {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="location"
             label="Location Name"
             type="text"
             fullWidth
@@ -53,7 +53,7 @@ export default function FormDialog() {
                     <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="city"
             label="City"
             type="text"
             fullWidth
@@ -62,25 +62,17 @@ export default function FormDialog() {
                     <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="state"
             label="State"
             type="text"
             fullWidth
             variant="standard"
           />
-                              <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Date of Arrival"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
+
                     <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="email"
             label="Email Address"
             type="email"
             fullWidth
