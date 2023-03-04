@@ -1,21 +1,17 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg';
-import Login from './Login.js';
-import Logout from './Logout.js';
-import { withAuth0 } from "@auth0/auth0-react";
-import './Header.css'
+import AuthButtons from './AuthButtons.js'
+import './Header.css';
+import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg'
+import { withAuth0 } from '@auth0/auth0-react';
 
 class Header extends React.Component {
     render() {
         return (
 
-            <Navbar
-                // className='background'
-                bg="black"
-                variant="dark">
-                <Container>
+            <Navbar bg="black" variant="dark">
+                <Container className="navBar">
                     <img
                         src={headerImage}
                         width='50'
@@ -23,23 +19,14 @@ class Header extends React.Component {
                         className="d-inline-block align-top"
                         alt="Nebula"
                     />
-                    <Navbar.Brand href='/'>Space Explorer</Navbar.Brand>
+                    <Navbar.Brand href='/'className="navTitle">Space Explorer</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Nav className="me-auto">
                         <Nav.Link href='/'>Home</Nav.Link>
                         <Nav.Link href='/eclipse'>Eclipse 2024</Nav.Link>
                         <Nav.Link href='/resources'>Resources</Nav.Link>
                         <Nav.Link href='/about'>About Us</Nav.Link>
-                        {this.props.auth0.isAuthenticated ? (
-                <>
-                        <Nav.Link href='/profile'>Profile</Nav.Link>
-                       <Logout/>
-                </>
-              ) : (
-                <Login/>
-                
-              )}
-                        
+                        <AuthButtons className="logIn"/>
                     </Nav>
 
                 </Container>
