@@ -9,3 +9,10 @@ h1{
     color: white;
     padding: 10px;
 }
+
+button{
+    background-color: black;
+    color: rgb(144, 143, 143);
+    box-shadow: none;
+
+}
