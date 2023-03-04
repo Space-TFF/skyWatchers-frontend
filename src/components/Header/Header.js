@@ -2,16 +2,14 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import AuthButtons from '../AuthButtons/AuthButtons.js'
+import './Header.css';
 import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg'
 
 class Header extends React.Component {
     render() {
         return (
 
-            <Navbar
-                // className='background'
-                bg="black"
-                variant="dark">
+            <Navbar bg="black" variant="dark">
                 <Container>
                     <img
                         src={headerImage}

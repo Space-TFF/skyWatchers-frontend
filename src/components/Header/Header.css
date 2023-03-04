@@ -3,9 +3,13 @@
     color:white;
 }
 
-h1{
+h1 {
     background-color: black;
     text-align: center;
     color: white;
     padding: 10px;
+}
+.me-auto {
+    display:flex;
+    justify-content: space-between;
 }

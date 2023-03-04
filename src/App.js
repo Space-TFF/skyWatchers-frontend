@@ -4,6 +4,7 @@ import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import { Outlet } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 
@@ -18,6 +19,7 @@ class App extends React.Component {
       <Auth0Provider
         domain={AUTHSERVER}
         clientId={yourClientId}
+        SERVER={SERVER}
         authorizationParams={{
           redirect_uri: window.location.origin
         }}>

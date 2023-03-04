@@ -5,9 +5,16 @@ import './Footer.css';
 class Footer extends React.Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg="black"
+      variant="dark" className='footer'>
         <div className='container'>
-        <Navbar.Brand className='footer'> &copy; 2023 Eva Grace Smith & Susan Harguss & Mike Pace</Navbar.Brand>
+          <Navbar.Brand> &copy;2023 
+            <span className='footer-names'>
+              Eva Grace Smith  &amp;  
+              Susan Hargus  &amp;  
+              Mike Pace
+            </span>
+          </Navbar.Brand>
         </div>
       </Navbar>
     );
