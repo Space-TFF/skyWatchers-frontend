@@ -1,8 +1,11 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import AuthButtons from '../AuthButtons/AuthButtons.js'
-import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg'
+import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg';
+import Login from './Login.js';
+import Logout from './Logout.js';
+import { withAuth0 } from "@auth0/auth0-react";
+import './Header.css'
 
 class Header extends React.Component {
     render() {
@@ -27,7 +30,16 @@ class Header extends React.Component {
                         <Nav.Link href='/eclipse'>Eclipse 2024</Nav.Link>
                         <Nav.Link href='/resources'>Resources</Nav.Link>
                         <Nav.Link href='/about'>About Us</Nav.Link>
-                        <AuthButtons />
+                        {this.props.auth0.isAuthenticated ? (
+                <>
+                        <Nav.Link href='/profile'>Profile</Nav.Link>
+                       <Logout/>
+                </>
+              ) : (
+                <Login/>
+                
+              )}
+                        
                     </Nav>
 
                 </Container>
@@ -36,7 +48,7 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withAuth0(Header);
 
 //<Nav.Link href='/skywatch'>Sky Watch</Nav.Link>
 //<Nav.Link href='/spacewatch'>Space Watch</Nav.Link>

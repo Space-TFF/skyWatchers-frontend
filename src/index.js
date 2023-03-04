@@ -12,12 +12,13 @@ import {
   Route
 } from "react-router-dom";
 import Resources from './components/Resources/Resources';
-// import Skywatch from './Skywatch.js';
 import Eclipse from './components/Eclipse/Eclipse.js';
-// import Spacewatch from './Spacewatch.js';
 import Home from './components/Home/Home.js';
+import Profile from './components/Profile/Profile.js';
 import Error from './components/Error/Error.js';
 // import { Auth0Provider } from "@auth0/auth0-react";
+// import Skywatch from './Skywatch.js';
+// import Spacewatch from './Spacewatch.js';
 
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path="/resources" element={<Resources />} />
       <Route path="/eclipse" element={<Eclipse />} />
       <Route path="/about" element={<About />} />
+      <Route path="/profile" element={<Profile />} />
     </Route>
   )
 );
@@ -34,6 +36,7 @@ const router = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
     <RouterProvider router={router} />
 
 );
