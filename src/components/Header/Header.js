@@ -1,9 +1,10 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import AuthButtons from '../AuthButtons/AuthButtons.js'
+import AuthButtons from './AuthButtons.js'
 import './Header.css';
 import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg'
+import { withAuth0 } from '@auth0/auth0-react';
 
 class Header extends React.Component {
     render() {
