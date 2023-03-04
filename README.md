@@ -1,3 +1,29 @@
+# 301 Final Project: Space Explorer
+
+## Team members
+
+Jack Stubblefield, Susan Harguss, Mike Pace, Eva Smith
+
+## Overview
+
+This app will allow users to...
+
+A list of any libraries, frameworks, or packages that your application requires in order to properly function
+Instructions that the user may need to follow in order to get your application up and running on their own computer
+Clearly defined API endpoints with sample responses
+Clearly defined database schemas
+
+
+UML
+src/img/UML.png
+
+Wireframe
+src/img/wireframe.jpg
+
+
+
+
+
 Photo by <a href="https://unsplash.com/@aldebarans?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aldebaran S</a> on <a href="https://unsplash.com/s/photos/nebula?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 
