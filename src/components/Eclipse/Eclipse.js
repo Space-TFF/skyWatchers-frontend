@@ -16,7 +16,7 @@ class Eclipse extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: 'My Marker',
+
         }
     }
 
@@ -24,16 +24,22 @@ class Eclipse extends React.Component {
 
         return (
             <>
-                <div style={{ height: '100vh', width: '100%' }}>
+                <div style={{ height: '50vh', width: '50vw' }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: MAP_KEY }}
                         defaultCenter={defaultProps.center}
                         defaultZoom={defaultProps.zoom}
                     >
+
                         <EventMap
-                            lat={defaultProps.lat}
-                            lng={defaultProps.lng}
-                            text="My Marker"
+                            lat={41.98892477299115}
+                            lng={-91.65726894724021}
+                            text="Coe College"
+                        />
+                        <EventMap
+                            lat={41.971187159763886}
+                            lng={-91.6559992135134}
+                            text="DeltaV Code School"
                         />
                     </GoogleMapReact>
                 </div>

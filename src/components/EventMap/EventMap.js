@@ -8,12 +8,12 @@ class EventMap extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: 'My Marker',
+            text: '',
 
         }
     }
     render() {
-        return (<div>{this.state.text}</div>);
+        return (<div>{this.props.text}</div>);
     }
 }
 
