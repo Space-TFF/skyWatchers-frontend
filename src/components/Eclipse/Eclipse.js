@@ -2,9 +2,12 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import './Eclipse.css';
 import EventMarker from '../EventMarker/EventMarker';
+import { Container } from '@mui/material';
 const MAP_KEY = process.env.REACT_APP_MAP_KEY;
 
 //* default coords for the map to center on
+//TODO: This will eventually be whatever the defautl location of our user is, so we will grab this from DB
+
 const defaultProps = {
     center: {
         lat: 41.97111725808147,
@@ -16,7 +19,10 @@ class Eclipse extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            defaultLocation: {
+                lat: '',
+                lon: '',
+            }
         }
     }
 
@@ -24,13 +30,13 @@ class Eclipse extends React.Component {
 
         return (
             <>
-                <div style={{ height: '50vh', width: '50vw' }}>
+                <Container sx={{ width: '80vw', height: '80vh', pt: '5rem', }}>
+
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: MAP_KEY }}
                         defaultCenter={defaultProps.center}
                         defaultZoom={defaultProps.zoom}
                         yesIWantToUseGoogleMapApiInternals
-
                     >
 
                         <EventMarker
@@ -44,7 +50,7 @@ class Eclipse extends React.Component {
                             text="DeltaV Code School"
                         />
                     </GoogleMapReact>
-                </div>
+                </Container>
             </>
         );
     }
