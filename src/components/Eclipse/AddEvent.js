@@ -1,5 +1,6 @@
 import * as React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
+import {withAuth0 } from "@auth0/auth0-react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -22,7 +23,9 @@ class AddEvent extends React.Component {
   state:"",
   email:"", 
   isPublic:false,
-  open:false}
+  open:false,
+  error: false,
+  errorMessage: '',}
 }
 
 
@@ -60,11 +63,13 @@ class AddEvent extends React.Component {
   }
 
 //when "submit" is clicked on "add event" form
-  handleAddEvent =  (event) => {
+  handleAddEvent =  async (event) => {
     event.preventDefault();
     console.log('handleAddEvent' + this.state.name);
 
+    this.handleClose();
 
+  try{
 
 // form information being sent to server
         const reqBody = {
@@ -78,27 +83,36 @@ class AddEvent extends React.Component {
 
         };
         console.log('POST reqBody', reqBody);
-        // if (this.props.auth0.isAuthenticated) {
-        //   const res = await this.props.auth0.getIdTokenClaims();
-        //   const jwt = res.__raw;
-        //   console.log("token: ", jwt);
+
+        if (this.props.auth0.isAuthenticated) {
+          const res = await this.props.auth0.getIdTokenClaims();
+          const jwt = res.__raw;
+          console.log("token: ", jwt);
     
-        //   const config = {
-        //     method: "post",
-        //     baseURL: process.env.REACT_APP_SERVER,
-        //     url: "/ROUTE",
-        //     headers: { "Authorization": `Bearer ${jwt}` },
-        //     reqBody:reqBody,
-        //   };
-        //   console.log("", config)
+          const config = {
+            method: "post",
+            baseURL: process.env.REACT_APP_SERVER,
+            url: "/ROUTE",
+            headers: { "Authorization": `Bearer ${jwt}` },
+            reqBody:reqBody,
+          };
+          console.log("", config)
     
         //   //let axiosData = await axios(config);
-        // axios
-        //     .config
-        //     .then(console.log("post success??"))
-        //     .catch((error) => console.log('post error' + error));
-        // }
-      this.handleClose();
+        let value = await axios(config);
+          console.log("post success??", value)
+       }
+      } catch (error)
+        {
+          this.setState({
+            error: true,
+            errorMessage: `An error occurred: ${error}`,
+            });
+         console.log('post error' + error);
+
+        };
+
+
     };
 
 
@@ -186,4 +200,4 @@ class AddEvent extends React.Component {
   );
 }}
 
-export default AddEvent;
+export default withAuth0(AddEvent);
