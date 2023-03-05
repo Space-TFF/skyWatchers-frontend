@@ -8,7 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-class TemporaryDrawer extends React.Component {
+class SideDrawer extends React.Component {
     constructor(props) {
       super(props);
       this.state = {  left: false, }
@@ -32,27 +32,24 @@ class TemporaryDrawer extends React.Component {
                 <CardMedia
                     sx={{ height: 140 }}
                     image="/static/images/cards/contemplative-reptile.jpg"
-                    title="Eclipse Event"
+                    title={"Eclipse Event"}
                 />
                 <CardContent>
                     <Typography id="name" gutterBottom variant="h5" component="div">
-                        Name of Event
+                    {this.props.name}
                     </Typography>
                     <Typography id="description" variant="body2" color="text.secondary">
-                        Join us for this amazing event. Wide panoramic views. Live Music! Vendors include Red Bull and SpaceX.
+{this.props.description}
                     </Typography>
 
                     <Typography id="city" gutterBottom variant="subtitle2" component="div">
-                        City
+                        {this.props.city}
                     </Typography>
                     <Typography id="state" gutterBottom variant="subtitle2" component="div">
-                        State
-                    </Typography>
-                    <Typography gutterBottom variant="subtitle2" component="div">
-                        Date
+                        {this.props.state}
                     </Typography>
                     <Typography id="additionalInfo" variant="body2" color="text.secondary">
-                        Additional Info
+                        {this.props.additionalInfo}
                     </Typography>
                 </CardContent>
                 <CardActions>
@@ -84,4 +81,4 @@ class TemporaryDrawer extends React.Component {
     }
 }
 
-export default TemporaryDrawer;
+export default SideDrawer;
