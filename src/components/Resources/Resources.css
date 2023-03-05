@@ -10,5 +10,17 @@
 .products {
   display: flex;
   padding: 2rem;
-  justify-content: space-between;
+  justify-content: space-around;
+  
 }
+
+.card button {
+  align-self: center;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    /* margin-right: 25px; */
+}
+
