@@ -10,23 +10,38 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-export default function FormDialog() {
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+class AddEvent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: "",
+  description:"" ,
+  city:"",
+  state:"",
+  email:"", 
+  open:false}
+}
+
+
+
+  // [open, setOpen] = React.useState(false);
+
+  handleClickOpen = () => {
+    this.setState({open:true});
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  handleClose = () => {
+    this.setState({open:false});
   };
 
-  return (
+  render() {
+    const {open}=this.state;
+  return(
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={this.handleClickOpen}>
         Open form dialog
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={this.handleClose}>
         <DialogTitle>Add Event</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -35,8 +50,8 @@ export default function FormDialog() {
           <TextField
             autoFocus
             margin="dense"
-            id="location"
-            label="Location Name"
+            id="name"
+            label={this.props.name}
             type="text"
             fullWidth
             variant="standard"
@@ -44,9 +59,10 @@ export default function FormDialog() {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Name of Event (optional)"
+            id="description"
+            label={this.props.description}
             type="text"
+            multiline
             fullWidth
             variant="standard"
           />
@@ -54,7 +70,7 @@ export default function FormDialog() {
             autoFocus
             margin="dense"
             id="city"
-            label="City"
+            label={this.props.city}
             type="text"
             fullWidth
             variant="standard"
@@ -63,7 +79,7 @@ export default function FormDialog() {
             autoFocus
             margin="dense"
             id="state"
-            label="State"
+            label={this.props.state}
             type="text"
             fullWidth
             variant="standard"
@@ -73,7 +89,7 @@ export default function FormDialog() {
             autoFocus
             margin="dense"
             id="email"
-            label="Email Address"
+            label={this.props.email}
             type="email"
             fullWidth
             variant="standard"
@@ -87,9 +103,11 @@ export default function FormDialog() {
         <DialogActions>
           
 
-          <Button onClick={handleClose}>Submit</Button>
+          <Button onClick={this.handleClose}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
   );
-}
+}}
+
+export default AddEvent;
