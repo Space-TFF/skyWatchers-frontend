@@ -6,18 +6,25 @@ class Footer extends React.Component {
   render() {
     return (
       <Navbar collapseOnSelect expand="lg" bg="black"
-      variant="dark" className='footer'>
+        variant="dark" className='footer'>
         <div className='container'>
-          <Navbar.Brand> 
-            <span className='footer-names'>
-              <p>&copy;2023</p>
-              <p>Eva Grace Smith  &amp;</p>  
-              <p>Susan Hargus  &amp;</p> 
-              <p>Mike Pace</p>
-            </span>
+          <Navbar.Brand>
+
+           
+            {/* <ul className="list-inline ml-auto footer-names"> */}
+
+              {/* <li>Eva Grace Smith</li>
+              <li>Susan Hargus</li> */}
+              <li>Space Explorer &copy; 2023</li>
+              {/* <li>&copy;2023</li> */}
+            {/* </ul> */}
+
+
+
+
           </Navbar.Brand>
         </div>
-      </Navbar>
+      </Navbar >
     );
   }
 }

@@ -10,8 +10,7 @@
 .products {
   display: flex;
   padding: 2rem;
-  justify-content: space-around;
-  
+  justify-content: space-between;
 }
 
 .card button {
@@ -21,6 +20,6 @@
 .card {
     display: flex;
     justify-content: space-between;
-    /* margin-right: 25px; */
+    margin-right: 25px; 
 }
 
