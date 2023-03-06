@@ -1,0 +1,25 @@
+.page {
+  background-color: black;
+  width: 100vw;
+}
+
+.eclipseBandW2 {
+  width: 100vw;
+}
+
+.products {
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.card button {
+  align-self: center;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 25px; 
+}
+

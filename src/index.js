@@ -11,7 +11,7 @@ import {
   createRoutesFromElements,
   Route
 } from "react-router-dom";
-import Resources from './components/Resources/Resources';
+import Resources from './components/Resources/Resources.js';
 import Eclipse from './components/Eclipse/Eclipse.js';
 import Home from './components/Home/Home.js';
 import Profile from './components/Profile/Profile.js';
