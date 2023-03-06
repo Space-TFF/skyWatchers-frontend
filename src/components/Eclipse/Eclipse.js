@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import './Eclipse.css';
 import EventMarker from '../EventMarker/EventMarker';
-import { Container } from '@mui/material';
+import { Button, Container, TextField } from '@mui/material';
 const MAP_KEY = process.env.REACT_APP_MAP_KEY;
 
 //* default coords for the map to center on
@@ -266,18 +266,41 @@ class Eclipse extends React.Component {
             defaultLocation: {
                 lat: '',
                 lon: '',
-            }
+            },
+            searchQuery: '',
+
         }
+    }
+
+    setSearch = async (searchString) => {
+        console.log(searchString);
+        this.setState({ searchQuery: searchString })
+    }
+
+    searchLocation = async () => {
+        console.log(`Searching for: ${this.state.searchQuery}`);
+        //! maps api logic goes here
+        let request = {
+            query: 'searchQuery',
+            fields: ['name']
+        }
+
+
     }
 
     render() {
 
         return (
             <>
+                <TextField id='outlined-basic' label='search' variant='outlined' value={this.state.searchQuery} onChange={(e) => {
+                    this.setSearch(e.target.value)
+
+                }} />
+                <Button onClick={this.searchLocation} variant='contained'>Search</Button>
                 <Container sx={{ width: '80vw', height: '80vh', pt: '5rem', }}>
 
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: MAP_KEY }}
+                        bootstrapURLKeys={{ key: MAP_KEY, libraries: ['places', 'geometry', 'drawing', 'visualization'] }}
                         defaultCenter={defaultProps.center}
                         defaultZoom={defaultProps.zoom}
                         yesIWantToUseGoogleMapApiInternals
@@ -302,3 +325,4 @@ class Eclipse extends React.Component {
 }
 
 export default Eclipse;
+
