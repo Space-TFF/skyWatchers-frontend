@@ -39,6 +39,28 @@ const locations = [
 ];
 
 class Eclipse extends Component {
+  constructor(props) {
+    super(props);
+		this.state = {
+			currentLocation: {
+				lat: undefined,
+				lng: undefined,
+			},
+		};
+	}
+
+	success = (position) => {
+		const currentLocation = {
+			lat: position.coords.latitude,
+			lng: position.coords.longitude,
+		};
+		this.setState({ currentLocation: currentLocation });
+	};
+
+	componentDidMount() {
+		navigator.geolocation.getCurrentPosition(this.success);
+	}
+
 	render() {
 		return (
 			<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
@@ -49,6 +71,7 @@ class Eclipse extends Component {
 					options={{ styles: MapConfig.stylesArray }}>
 					{/* Child components, such as markers, info windows, etc. */}
 					<>
+						<Marker position={this.state.currentLocation} />
 						{locations.map((location) => {
 							return (
 								<Marker
