@@ -7,6 +7,8 @@ import {
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
+import { Button } from '@mui/material';
+import AddEvent from './AddEvent';
 
 const containerStyle = {
 	width: '80vw',
@@ -69,45 +71,50 @@ class Eclipse extends Component {
 		//TODO: add error handling if the user denies access to their location
 	}
 
+	createEvent = () => {};
+
 	render() {
 		return (
-			<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
-				<GoogleMap
-					mapContainerStyle={containerStyle}
-					center={this.state.currentLocation}
-					zoom={10}
-					options={{ styles: MapConfig.stylesArray }}>
-					{/* Child components, such as markers, info windows, etc. */}
-					<>
-						<Marker position={this.state.currentLocation} />
-						{locations.map((location) => {
-							return (
-								<Marker
-									key={location.name}
-									position={location.location}
-									onClick={() =>
-										this.setState({
-											selectedEvent: location,
-										})
-									}
-								/>
-							);
-						})}
-						{this.state.selectedEvent.location ? (
-							<InfoWindow
-								position={this.state.selectedEvent.location}
-								clickable={true}
-								onCloseClick={() =>
-									this.setState({ selectedEvent: {} })
-								}>
-								<SelectEventCard
-									name={this.state.selectedEvent.name}
-								/>
-							</InfoWindow>
-						) : null}
-					</>
-				</GoogleMap>
-			</LoadScript>
+			<>
+				<AddEvent/>
+				<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
+					<GoogleMap
+						mapContainerStyle={containerStyle}
+						center={this.state.currentLocation}
+						zoom={10}
+						options={{ styles: MapConfig.stylesArray }}>
+						{/* Child components, such as markers, info windows, etc. */}
+						<>
+							<Marker position={this.state.currentLocation} />
+							{locations.map((location) => {
+								return (
+									<Marker
+										key={location.name}
+										position={location.location}
+										onClick={() =>
+											this.setState({
+												selectedEvent: location,
+											})
+										}
+									/>
+								);
+							})}
+							{this.state.selectedEvent.location ? (
+								<InfoWindow
+									position={this.state.selectedEvent.location}
+									clickable={true}
+									onCloseClick={() =>
+										this.setState({ selectedEvent: {} })
+									}>
+									<SelectEventCard
+										name={this.state.selectedEvent.name}
+									/>
+								</InfoWindow>
+							) : null}
+						</>
+					</GoogleMap>
+				</LoadScript>
+			</>
 		);
 	}
 }

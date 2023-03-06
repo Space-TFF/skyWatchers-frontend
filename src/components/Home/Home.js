@@ -9,7 +9,7 @@ class Home extends React.Component {
     return (
       <>
         <div>
-          <SelectEventCard
+          {/* <SelectEventCard
             name="Event Name"
             description=" Join us for this amazing event. Wide panoramic views. Live Music! Vendors include Red Bull and SpaceX." />
             <AddEvent
@@ -25,7 +25,7 @@ class Home extends React.Component {
           city="City"
           state="State"
           additionalInfo="Additional Info"
-          />
+          /> */}
         </div>
         <p>This is the Home Page</p>
       </>
