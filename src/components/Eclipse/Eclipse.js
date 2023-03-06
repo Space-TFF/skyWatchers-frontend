@@ -39,8 +39,8 @@ const locations = [
 ];
 
 class Eclipse extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 		this.state = {
 			currentLocation: {
 				lat: undefined,
@@ -49,6 +49,10 @@ class Eclipse extends Component {
 		};
 	}
 
+	/**
+	 * @param {obj} position - this is the object returned from the geolocation API
+	 * * Once permission is given, pass the obj to state so we can pin it on the map.
+	 */
 	success = (position) => {
 		const currentLocation = {
 			lat: position.coords.latitude,
@@ -57,6 +61,10 @@ class Eclipse extends Component {
 		this.setState({ currentLocation: currentLocation });
 	};
 
+	/**
+	 * Grab user's location when the page reloads
+	 * * This uses the javascript geolocation api: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API
+	 */
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(this.success);
 	}
