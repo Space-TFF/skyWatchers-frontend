@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {
+	GoogleMap,
+	LoadScript,
+	Marker,
+	InfoWindow,
+} from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
+import SelectEventCard from './SelectedEventCard';
 
 const containerStyle = {
 	width: '80vw',
@@ -8,12 +14,7 @@ const containerStyle = {
 	margin: '4em auto',
 };
 
-//TODO: This will be the user's current location (make sure to ask permission)
-const center = {
-	lat: 41.97111725808147,
-	lng: -91.6563726642888,
-};
-
+//TODO: These will come from the DB as user created events (or private marked locations)
 const locations = [
 	{
 		name: 'DeltaV Code School',
@@ -42,10 +43,8 @@ class Eclipse extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: {
-				lat: undefined,
-				lng: undefined,
-			},
+			currentLocation: {},
+			selectedEvent: {},
 		};
 	}
 
@@ -67,6 +66,7 @@ class Eclipse extends Component {
 	 */
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(this.success);
+		//TODO: add error handling if the user denies access to their location
 	}
 
 	render() {
@@ -74,7 +74,7 @@ class Eclipse extends Component {
 			<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
 				<GoogleMap
 					mapContainerStyle={containerStyle}
-					center={center}
+					center={this.state.currentLocation}
 					zoom={10}
 					options={{ styles: MapConfig.stylesArray }}>
 					{/* Child components, such as markers, info windows, etc. */}
@@ -85,9 +85,26 @@ class Eclipse extends Component {
 								<Marker
 									key={location.name}
 									position={location.location}
+									onClick={() =>
+										this.setState({
+											selectedEvent: location,
+										})
+									}
 								/>
 							);
 						})}
+						{this.state.selectedEvent.location ? (
+							<InfoWindow
+								position={this.state.selectedEvent.location}
+								clickable={true}
+								onCloseClick={() =>
+									this.setState({ selectedEvent: {} })
+								}>
+								<SelectEventCard
+									name={this.state.selectedEvent.name}
+								/>
+							</InfoWindow>
+						) : null}
 					</>
 				</GoogleMap>
 			</LoadScript>
