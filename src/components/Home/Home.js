@@ -29,7 +29,7 @@ class Home extends React.Component {
             description=" Join us for this amazing event. Wide panoramic views. Live Music! Vendors include Red Bull and SpaceX." />
 
 <Button variant="outlined" onClick={this.handleClickOpen}>
-        Open form dialog
+        Open AddEvent dialog
       </Button>
             <AddEvent
             name="Event Name"
