@@ -56,6 +56,7 @@ class Home extends React.Component {
         <div>
           <div className='eclipseBackground'>
         <div className='timer'>
+          <p>Solar Eclipse begins in:</p>
         <CountdownTimer targetDate="04/08/2024" />
       </div>
       </div>

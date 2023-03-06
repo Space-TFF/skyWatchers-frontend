@@ -35,8 +35,8 @@ class CountdownTimer extends Component {
       <div className='count'>
         <div className='verticalCount'><p className='h1'>{days}</p><p>days</p></div> 
         <div className='verticalCount'><p className='h1'>{hours}</p><p>&nbsp;&nbsp;hours&nbsp;&nbsp; </p></div> 
-        <div className='verticalCount'><p className='h1'>{minutes}</p><p>&nbsp;&nbsp;min&nbsp;&nbsp;&nbsp; </p></div> 
-        <div className='verticalCount'><p className='h1'>{seconds}</p><p>sec</p></div>
+        <div className='verticalCount'><p className='h1'>{minutes}</p><p>&nbsp;&nbsp;min&nbsp;&nbsp; </p></div> 
+        <div className='verticalCount'><p className='h1'>{seconds}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;sec&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
       </div>
     );
   }
