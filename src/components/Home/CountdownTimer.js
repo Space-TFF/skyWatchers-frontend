@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import './CountdownTimer.css';
+
+
+
+
 class CountdownTimer extends Component {
   constructor(props) {
     super(props);
@@ -27,8 +32,11 @@ class CountdownTimer extends Component {
     timeLeft -= minutes * 60;
     const seconds = timeLeft;
     return (
-      <div>
-        {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
+      <div className='count'>
+        <div className='verticalCount'><p className='h1'>{days}</p><p>days</p></div> 
+        <div className='verticalCount'><p className='h1'>{hours}</p><p>&nbsp;&nbsp;hours&nbsp;&nbsp; </p></div> 
+        <div className='verticalCount'><p className='h1'>{minutes}</p><p>&nbsp;&nbsp;min&nbsp;&nbsp;&nbsp; </p></div> 
+        <div className='verticalCount'><p className='h1'>{seconds}</p><p>sec</p></div>
       </div>
     );
   }

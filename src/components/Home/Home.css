@@ -1,6 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+
+
+
 .eclipseBackground{
     background-image: url('../../img/abed-ismail-_jhUrn9o8yM-unsplash.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
+
+}
+
+.timer{
+    font-family: 'Tilt Neon', cursive;
+    font-size: 2rem;
+    color: rgb(243, 222, 159);
+    padding-top: 65vh;
 
 }

@@ -55,7 +55,7 @@ class Home extends React.Component {
       <>
         <div>
           <div className='eclipseBackground'>
-        <div>
+        <div className='timer'>
         <CountdownTimer targetDate="04/08/2024" />
       </div>
       </div>
