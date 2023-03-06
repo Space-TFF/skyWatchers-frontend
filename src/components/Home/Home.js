@@ -54,10 +54,11 @@ class Home extends React.Component {
     return (
       <>
         <div>
+          <div className='eclipseBackground'>
         <div>
         <CountdownTimer targetDate="04/08/2024" />
       </div>
-        
+      </div>
 
         <Button variant="outlined" onClick={this.openSelectEvent}>
         Open Select Event dialog
