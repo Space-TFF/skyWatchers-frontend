@@ -53,7 +53,7 @@ class SideDrawer extends React.Component {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Add to My Events</Button>
+                    <Button size="small" onClick={this.props.handleClickClose}>Add to My Events</Button>
 
                 </CardActions>
             </Card>
@@ -66,10 +66,9 @@ class SideDrawer extends React.Component {
         <div>
             {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Button onClick={this.toggleDrawer(anchor, true)}>{anchor}</Button>
                     <Drawer
                         anchor={anchor}
-                        open={this.state[anchor]}
+                        open={this.state[anchor] ||this.props.open} 
                         onClose={this.toggleDrawer(anchor, false)}
                     >
                         {this.list(anchor)}
