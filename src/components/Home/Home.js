@@ -28,23 +28,26 @@ class Home extends React.Component {
   };
 
   openSelectEvent = () => {
-    this.setState({openEvent:true});
-  };
-  closeSelectEvent = () => {
-    this.setState({openEvent:false})
+    this.setState({openEvent:!this.state.openEvent});
   };
 
   closeSelectEvent = () => {
-    this.setState({openEvent:false})
-  };
-  openDrawerEvent = () => {
+    this.setState({openEvent:false});
     this.setState({openDrawer:true});
   };
 
   closeSelectEventAdd = () => {
-    this.setState({openDrawer:false});
-    this.openSelectEvent();
+    this.setState({openEvent:false});
   };
+
+  openDrawerEvent = () => {
+    this.setState({openDrawer:true});
+  };
+  closeDrawerEvent= () => {
+    this.setState({openDrawer:false});
+  };
+
+
 
   render() {
     return (
@@ -82,7 +85,7 @@ class Home extends React.Component {
           city="City"
           state="State"
           additionalInfo="Additional Info"
-          open={this.state.openDrawer}
+          openNow={this.state.openDrawer}
           handleClickClose={this.closeDrawerEvent}
           />
         </div>
