@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectEventCard from "../Eclipse/SelectEventCard";
 import SideDrawer from "../Eclipse/SideDrawer.js";
+import CountdownTimer from "./CountdownTimer.js";
 import './Home.css';
 import AddEvent from "../Eclipse/AddEvent.js"
 import Button from '@mui/material/Button';
@@ -53,6 +54,11 @@ class Home extends React.Component {
     return (
       <>
         <div>
+        <div>
+        <CountdownTimer targetDate="04/08/2024" />
+      </div>
+        
+
         <Button variant="outlined" onClick={this.openSelectEvent}>
         Open Select Event dialog
       </Button>
