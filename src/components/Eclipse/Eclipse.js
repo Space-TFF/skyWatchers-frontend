@@ -15,7 +15,7 @@ class Eclipse extends Component {
   render() {
     return (
       <LoadScript
-        googleMapsApiKey="YOUR_API_KEY"
+        googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -29,3 +29,5 @@ class Eclipse extends Component {
     )
   }
 }
+
+export default Eclipse
