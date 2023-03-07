@@ -11,6 +11,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api';
 
 class AddEvent extends React.Component {
 	constructor(props) {
@@ -71,11 +72,11 @@ class AddEvent extends React.Component {
 			// form information being sent to server
 			const reqBody = {
 				name: this.state.name,
-				// description:this.state.description,
+				description: this.state.description,
 				city: this.state.city,
 				state: this.state.state,
 				time: 'TBD',
-				//  email:this.state.email,
+				email: this.state.email,
 				RSVP: true,
 			};
 			console.log('POST reqBody', reqBody);
@@ -90,13 +91,13 @@ class AddEvent extends React.Component {
 					baseURL: process.env.REACT_APP_SERVER,
 					url: '/ROUTE',
 					headers: { Authorization: `Bearer ${jwt}` },
-					reqBody: reqBody,
+					data: reqBody,
 				};
-				console.log('', config);
+				console.log('YO', config);
 
-				//   //let axiosData = await axios(config);
-				let value = await axios(config);
-				console.log('post success??', value);
+				let axiosData = await axios(config).then((res) => {
+					console.log('yoyoyo', res.data);
+				});
 			}
 		} catch (error) {
 			this.setState({
@@ -121,7 +122,7 @@ class AddEvent extends React.Component {
 							To add an event to this location, please fill out
 							the following information.
 						</DialogContentText>
-						<TextField
+						{/* <TextField
 							autoFocus
 							margin='dense'
 							id='name'
@@ -141,18 +142,37 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleDescriptionChange}
-						/>
-						<TextField
-							autoFocus
-							margin='dense'
-							id='city'
-							label={this.props.city}
-							type='text'
-							fullWidth
-							variant='standard'
-							onChange={this.handleCityChange}
-						/>
-						<TextField
+						/> */}
+						<LoadScript
+							googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
+							libraries={['places']}
+						>
+							<StandaloneSearchBox
+								onLoad={this.onLoad}
+								onPlacesChanged={this.onPlacesChanged}
+							>
+								<input
+									type='text'
+									placeholder='Customized your placeholder'
+									style={{
+										boxSizing: `border-box`,
+										border: `1px solid transparent`,
+										width: `240px`,
+										height: `32px`,
+										padding: `0 12px`,
+										borderRadius: `3px`,
+										boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+										fontSize: `14px`,
+										outline: `none`,
+										textOverflow: `ellipses`,
+										position: 'absolute',
+										left: '50%',
+										marginLeft: '-120px',
+									}}
+								/>
+							</StandaloneSearchBox>
+						</LoadScript>
+						{/* <TextField
 							autoFocus
 							margin='dense'
 							id='state'
@@ -179,7 +199,7 @@ class AddEvent extends React.Component {
 								label='Make Public'
 								onChange={this.handleCheckbox}
 							/>
-						</FormGroup>
+						</FormGroup> */}
 					</DialogContent>
 					<DialogActions>
 						<Button onClick={this.handleAddEvent}>Submit</Button>

@@ -4,6 +4,7 @@ import {
 	LoadScript,
 	Marker,
 	InfoWindow,
+	StandaloneSearchBox,
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
@@ -50,6 +51,10 @@ class Eclipse extends Component {
 		};
 	}
 
+	onLoad = (ref) => (this.searchBox = ref);
+
+	onPlacesChanged = () => console.log(this.searchBox.getPlaces());
+
 	/**
 	 * @param {obj} position - this is the object returned from the geolocation API
 	 * * Once permission is given, pass the obj to state so we can pin it on the map.
@@ -85,7 +90,11 @@ class Eclipse extends Component {
 					open={this.state.openAdd}
 					handleClickClose={this.handleClickClose}
 				/>
-				<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
+
+				<LoadScript
+					googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
+					libraries={['places']}
+				>
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
