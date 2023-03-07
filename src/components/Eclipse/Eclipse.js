@@ -3,18 +3,16 @@ import {
 	GoogleMap,
 	LoadScript,
 	Marker,
-	InfoWindow,
-	StandaloneSearchBox,
+	InfoWindow
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
-import { Button } from '@mui/material';
 import AddEvent from './AddEvent';
 
 const containerStyle = {
 	width: '80vw',
 	height: '80vh',
-	margin: '4em auto',
+	margin: '4em auto'
 };
 
 //TODO: These will come from the DB as user created events (or private marked locations)
@@ -23,23 +21,23 @@ const locations = [
 		name: 'DeltaV Code School',
 		location: {
 			lat: 41.971187159763886,
-			lng: -91.6559992135134,
-		},
+			lng: -91.6559992135134
+		}
 	},
 	{
 		name: 'Palisades-Kepler State Park',
 		location: {
 			lat: 41.92751487030226,
-			lng: -91.5055285794566,
-		},
+			lng: -91.5055285794566
+		}
 	},
 	{
 		name: 'Custom Event Location!',
 		location: {
 			lat: 41.95690820284285,
-			lng: -91.68765411996654,
-		},
-	},
+			lng: -91.68765411996654
+		}
+	}
 ];
 
 class Eclipse extends Component {
@@ -47,7 +45,7 @@ class Eclipse extends Component {
 		super(props);
 		this.state = {
 			currentLocation: {},
-			selectedEvent: {},
+			selectedEvent: {}
 		};
 	}
 
@@ -62,7 +60,7 @@ class Eclipse extends Component {
 	success = (position) => {
 		const currentLocation = {
 			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lng: position.coords.longitude
 		};
 		this.setState({ currentLocation: currentLocation });
 	};
@@ -111,7 +109,7 @@ class Eclipse extends Component {
 										position={location.location}
 										onClick={() =>
 											this.setState({
-												selectedEvent: location,
+												selectedEvent: location
 											})
 										}
 									/>

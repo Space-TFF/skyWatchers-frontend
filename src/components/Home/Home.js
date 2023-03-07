@@ -5,7 +5,7 @@ import CountdownTimer from './CountdownTimer.js';
 import './Home.css';
 import AddEvent from '../Eclipse/AddEvent.js';
 import Button from '@mui/material/Button';
-
+import Autocomplete from 'react-google-autocomplete';
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
@@ -18,7 +18,7 @@ class Home extends React.Component {
 				' Join us for this amazing event. Wide panoramic views. Live Music! Vendors include Red Bull and SpaceX.',
 			city: '',
 			state: '',
-			additionalInfo: '',
+			additionalInfo: ''
 		};
 	}
 
@@ -59,6 +59,12 @@ class Home extends React.Component {
 							<CountdownTimer targetDate='04/08/2024' />
 						</div>
 					</div>
+					<Autocomplete
+						apiKey={process.env.REACT_APP_MAP_KEY}
+						onPlaceSelected={(place) => {
+							console.log(place);
+						}}
+					/>
 					{/* <Button variant='outlined' onClick={this.openDrawerEvent}>
 						Drawer
 					</Button>

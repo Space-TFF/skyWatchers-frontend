@@ -11,8 +11,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { StandaloneSearchBox, LoadScript } from '@react-google-maps/api';
-
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -25,7 +23,7 @@ class AddEvent extends React.Component {
 			isPublic: false,
 			open: false,
 			error: false,
-			errorMessage: '',
+			errorMessage: ''
 		};
 	}
 
@@ -77,7 +75,7 @@ class AddEvent extends React.Component {
 				state: this.state.state,
 				time: 'TBD',
 				email: this.state.email,
-				RSVP: true,
+				RSVP: true
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -91,7 +89,7 @@ class AddEvent extends React.Component {
 					baseURL: process.env.REACT_APP_SERVER,
 					url: '/ROUTE',
 					headers: { Authorization: `Bearer ${jwt}` },
-					data: reqBody,
+					data: reqBody
 				};
 				console.log('YO', config);
 
@@ -102,7 +100,7 @@ class AddEvent extends React.Component {
 		} catch (error) {
 			this.setState({
 				error: true,
-				errorMessage: `An error occurred: ${error}`,
+				errorMessage: `An error occurred: ${error}`
 			});
 			console.log('post error' + error);
 		}
@@ -143,35 +141,7 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleDescriptionChange}
 						/> */}
-						<LoadScript
-							googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
-							libraries={['places']}
-						>
-							<StandaloneSearchBox
-								onLoad={this.onLoad}
-								onPlacesChanged={this.onPlacesChanged}
-							>
-								<input
-									type='text'
-									placeholder='Customized your placeholder'
-									style={{
-										boxSizing: `border-box`,
-										border: `1px solid transparent`,
-										width: `240px`,
-										height: `32px`,
-										padding: `0 12px`,
-										borderRadius: `3px`,
-										boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-										fontSize: `14px`,
-										outline: `none`,
-										textOverflow: `ellipses`,
-										position: 'absolute',
-										left: '50%',
-										marginLeft: '-120px',
-									}}
-								/>
-							</StandaloneSearchBox>
-						</LoadScript>
+						
 						{/* <TextField
 							autoFocus
 							margin='dense'
@@ -182,7 +152,7 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleStateChange}
 						/>
-
+						
 						<TextField
 							autoFocus
 							margin='dense'
