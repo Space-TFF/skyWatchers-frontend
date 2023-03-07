@@ -76,13 +76,22 @@ class Eclipse extends Component {
 	render() {
 		return (
 			<>
-				<AddEvent/>
+				<AddEvent
+					name='Event Name'
+					description='Description'
+					city='City'
+					state='State'
+					email='email'
+					open={this.state.openAdd}
+					handleClickClose={this.handleClickClose}
+				/>
 				<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
 						zoom={10}
-						options={{ styles: MapConfig.stylesArray }}>
+						options={{ styles: MapConfig.stylesArray }}
+					>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
 							<Marker position={this.state.currentLocation} />
@@ -105,7 +114,8 @@ class Eclipse extends Component {
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })
-									}>
+									}
+								>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
 									/>

@@ -12,9 +12,22 @@ class SelectEventCard extends React.Component {
     this.state = { name: "",
   description:"" }
 }
+handleAddEvent =  async (event) => {
+  event.preventDefault();
+  console.log('handleAddEvent');
+
+  this.props.handleClickCloseAdd();
+}
+handleLearn =  async (event) => {
+  event.preventDefault();
+  console.log('handleLearn');
+
+  this.props.handleClickClose();
+
+}
   render() {
   return(
-    <Card sx = {{ maxWidth: 345 }}>
+    <Card sx = {{ maxWidth: 345 }} open = {this.props.open}>
       <><CardMedia
         sx={{ height: 140 }}
         image="/static/images/cards/contemplative-reptile.jpg"
@@ -26,8 +39,8 @@ class SelectEventCard extends React.Component {
           {this.props.description}
           </Typography>
         </CardContent><CardActions>
-          <Button size="small">Add to My Events</Button>
-          <Button size="small">Learn More</Button>
+          <Button size="small"onClick={this.handleAddEvent} >Add to My Events</Button>
+          <Button size="small"onClick={this.handleLearn} >Learn More</Button>
         </CardActions></>
     </Card >
   );

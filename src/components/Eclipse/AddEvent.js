@@ -111,14 +111,10 @@ class AddEvent extends React.Component {
 		const { open } = this.state;
 		return (
 			<div>
-				<Button
-					variant='contained'
-					onClick={this.handleClickOpen}>
+				<Button variant='contained' onClick={this.handleClickOpen}>
 					Open form dialog
 				</Button>
-				<Dialog
-					open={open}
-					onClose={this.handleClose}>
+				<Dialog open={open} onClose={this.handleClose}>
 					<DialogTitle>Add Event</DialogTitle>
 					<DialogContent>
 						<DialogContentText>
