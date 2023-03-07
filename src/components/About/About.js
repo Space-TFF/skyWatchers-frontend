@@ -6,7 +6,9 @@ import SusanHargus from '../../img/SusanHargus.jpg';
 import MikePace from '../../img/MikePace.jpg';
 import JackStubblefield from '../../img/JackStubblefield.jpg';
 import EvaGrace from '../../img/EvaGrace.jpg';
+// import starDrop from '../../img/starDrop.jpg';
 import { Container } from 'react-bootstrap';
+
 
 
 
@@ -21,7 +23,21 @@ class Aboutus extends React.Component {
   render() {
     return (
       <main>
-  <>
+
+        {/* <video
+          src="{starDrop}" alt="starDrop"
+          autoPlay
+          muted
+          loop
+          style={{
+            position: 'fixed',
+            zIndex: -1,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        /> */}
+  
     <div className='aboutUs'>
 
       <div className='cardWrap'>
@@ -36,15 +52,15 @@ class Aboutus extends React.Component {
                 </div>
               </div>
               <div className="flip-card-back">
-
+              </div>
               </div>
             </div>
             <div className='textBox'>
-              <h1>Eva Grace Smith</h1>
-              <p>Full Stack Software Developer</p>
+              <h2>Eva Grace Smith</h2>
+              <h4>Full Stack Software Developer</h4>
               <p>Using my love of web design, art, and people to make the world a better place, one page at a time.</p>
             </div>
-            </div>
+          
         </Container>
 
 
@@ -65,8 +81,8 @@ class Aboutus extends React.Component {
             </div>
           </div>
           <div className='textBox'>
-            <h1>Mike Pace</h1>
-            <p>Full Stack Software Developer</p>
+            <h2>Mike Pace</h2>
+            <h4>Full Stack Software Developer</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </Container>
@@ -86,8 +102,8 @@ class Aboutus extends React.Component {
             </div>
           </div>
           <div className='textBox'>
-            <h1>Susan Hargus</h1>
-            <p>Full Stack Software Developer</p>
+            <h2>Susan Hargus</h2>
+            <h4>Full Stack Software Developer</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </Container>
@@ -108,15 +124,15 @@ class Aboutus extends React.Component {
             </div>
           </div>
           <div className='textBox'>
-            <h1>Jack Stubblefield</h1>
-            <p>Full Stack Software Developer</p>
+            <h2>Jack Stubblefield</h2>
+            <h4>Full Stack Software Developer</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </Container>
       </div>
     </div >
 
-  </>
+  
   </main>
   );
     }
