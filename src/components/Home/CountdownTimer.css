@@ -1,0 +1,18 @@
+.count{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.verticalCount{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.h1{
+    font-size: 4rem;
+    line-height: .5;
+}

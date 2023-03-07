@@ -30,13 +30,9 @@ class AddEvent extends React.Component {
 
 
 
-  handleClickOpen = () => {
-    this.setState({open:true});
-  };
 
-  handleClose = () => {
-    this.setState({open:false})
-  };
+
+
 
   handleNameChange = (event) =>{
     this.setState({name:event.target.value})
@@ -67,7 +63,7 @@ class AddEvent extends React.Component {
     event.preventDefault();
     console.log('handleAddEvent' + this.state.name);
 
-    this.handleClose();
+    this.props.handleClickClose();
 
   try{
 
@@ -117,13 +113,11 @@ class AddEvent extends React.Component {
 
 
   render() {
-    const {open}=this.state;
+
   return(
     <div>
-      <Button variant="outlined" onClick={this.handleClickOpen}>
-        Open form dialog
-      </Button>
-      <Dialog open={open} onClose={this.handleClose}>
+
+      <Dialog open={this.props.open} onClose={this.props.handleClickClose}>
         <DialogTitle>Add Event</DialogTitle>
         <DialogContent>
           <DialogContentText>
