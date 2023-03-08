@@ -3,16 +3,17 @@ import {
 	GoogleMap,
 	LoadScript,
 	Marker,
-	InfoWindow
+	InfoWindow,
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
 import AddEvent from './AddEvent';
+import { KmlLayer } from '@react-google-maps/api';
 
 const containerStyle = {
 	width: '80vw',
 	height: '80vh',
-	margin: '4em auto'
+	margin: '4em auto',
 };
 
 //TODO: These will come from the DB as user created events (or private marked locations)
@@ -21,23 +22,23 @@ const locations = [
 		name: 'DeltaV Code School',
 		location: {
 			lat: 41.971187159763886,
-			lng: -91.6559992135134
-		}
+			lng: -91.6559992135134,
+		},
 	},
 	{
 		name: 'Palisades-Kepler State Park',
 		location: {
 			lat: 41.92751487030226,
-			lng: -91.5055285794566
-		}
+			lng: -91.5055285794566,
+		},
 	},
 	{
 		name: 'Custom Event Location!',
 		location: {
 			lat: 41.95690820284285,
-			lng: -91.68765411996654
-		}
-	}
+			lng: -91.68765411996654,
+		},
+	},
 ];
 
 class Eclipse extends Component {
@@ -45,7 +46,7 @@ class Eclipse extends Component {
 		super(props);
 		this.state = {
 			currentLocation: {},
-			selectedEvent: {}
+			selectedEvent: {},
 		};
 	}
 
@@ -60,7 +61,7 @@ class Eclipse extends Component {
 	success = (position) => {
 		const currentLocation = {
 			lat: position.coords.latitude,
-			lng: position.coords.longitude
+			lng: position.coords.longitude,
 		};
 		this.setState({ currentLocation: currentLocation });
 	};
@@ -91,14 +92,12 @@ class Eclipse extends Component {
 
 				<LoadScript
 					googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
-					libraries={['places']}
-				>
+					libraries={['places']}>
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
 						zoom={10}
-						options={{ styles: MapConfig.stylesArray }}
-					>
+						options={{ styles: MapConfig.stylesArray }}>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
 							<Marker position={this.state.currentLocation} />
@@ -109,7 +108,7 @@ class Eclipse extends Component {
 										position={location.location}
 										onClick={() =>
 											this.setState({
-												selectedEvent: location
+												selectedEvent: location,
 											})
 										}
 									/>
@@ -121,13 +120,16 @@ class Eclipse extends Component {
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })
-									}
-								>
+									}>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
 									/>
 								</InfoWindow>
 							) : null}
+							<KmlLayer
+								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/profile/src/components/Eclipse/Space-Explorer.kml'
+								options={{ preserveViewport: true }}
+							/>
 						</>
 					</GoogleMap>
 				</LoadScript>
