@@ -18,7 +18,7 @@ class Aboutus extends React.Component {
 
     };
   }
-  
+
   render() {
     return (
       <main>
@@ -36,34 +36,34 @@ class Aboutus extends React.Component {
             objectFit: 'cover',
           }}
         /> */}
-  
-    <div className='aboutUs'>
 
-      <div className='cardWrap'>
-        <Container>
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <div className='photoCard'>
-                  <img src={EvaGrace} alt="Eva Grace"
-                    className='photoImage'
-                  />
+        <div className='aboutUs'>
+
+          <div className='cardWrap'>
+            <Container>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className='photoCard'>
+                      <img src={EvaGrace} alt="Eva Grace"
+                        className='photoImage'
+                      />
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                  </div>
                 </div>
               </div>
-              <div className="flip-card-back">
+              <div className='textBox'>
+                <h2>Eva Grace Smith</h2>
+                <h4>Full Stack Software Developer</h4>
+                <p>Using my love of web design, art, and people to make the world a better place, one page at a time.</p>
               </div>
-              </div>
-            </div>
-            <div className='textBox'>
-              <h2>Eva Grace Smith</h2>
-              <h4>Full Stack Software Developer</h4>
-              <p>Using my love of web design, art, and people to make the world a better place, one page at a time.</p>
-            </div>
-          
-        </Container>
+
+            </Container>
 
 
-        {/* <Container>
+            {/* <Container>
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">
@@ -85,60 +85,60 @@ class Aboutus extends React.Component {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </Container> */}
-        <Container>
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <div className='photoCard'>
-                  <img src={SusanHargus} alt="Susan Hargus"
-                    className='photoImage'
-                  />
+            <Container>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className='photoCard'>
+                      <img src={SusanHargus} alt="Susan Hargus"
+                        className='photoImage'
+                      />
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+
+                  </div>
                 </div>
               </div>
-              <div className="flip-card-back">
-
+              <div className='textBox'>
+                <h2>Susan Hargus</h2>
+                <h4>Full Stack Software Developer</h4>
+                <p>As a classical realist painter I am pursuing a career in software development
+                  I love the opportunity coding provides for continual discovery.
+                </p>
               </div>
-            </div>
-          </div>
-          <div className='textBox'>
-            <h2>Susan Hargus</h2>
-            <h4>Full Stack Software Developer</h4>
-            <p>As a classical realist painter I am pursuing a career in software development 
-I love the opportunity coding provides for continual discovery.
-</p>
-          </div>
-        </Container>
-        <Container>
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <div className='photoCard'>
-                  <img src={JackStubblefield} alt="Jack Stubblefield"
-                    className='photoImage'
-                  />
+            </Container>
+            <Container>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className='photoCard'>
+                      <img src={JackStubblefield} alt="Jack Stubblefield"
+                        className='photoImage'
+                      />
 
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+
+                  </div>
                 </div>
               </div>
-              <div className="flip-card-back">
+              <div className='textBox'>
+                <h2>Jack Stubblefield</h2>
+                <h4>Full Stack Software Developer</h4>
+                <p>I love learning new technologies and I am passionate about using software to make a difference in peoples lives.
 
+                </p>
               </div>
-            </div>
+            </Container>
           </div>
-          <div className='textBox'>
-            <h2>Jack Stubblefield</h2>
-            <h4>Full Stack Software Developer</h4>
-            <p>I love learning new technologies and I am passionate about using software to make a difference in peoples lives.
+        </div >
 
-</p>
-          </div>
-        </Container>
-      </div>
-    </div >
 
-  
-  </main>
-  );
-    }
+      </main>
+    );
   }
+}
 
 export default Aboutus;
