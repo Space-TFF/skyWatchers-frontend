@@ -12,6 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import AddressInput from './AddressInput';
+import Autocomplete from 'react-google-autocomplete';
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -125,7 +126,7 @@ class AddEvent extends React.Component {
 							To add an event to this location, please fill out
 							the following information.
 						</DialogContentText>
-						{/* <TextField
+						<TextField
 							autoFocus
 							margin='dense'
 							id='name'
@@ -145,9 +146,9 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleDescriptionChange}
-						/> */}
+						/>
 						<AddressInput />
-						{/* <TextField
+						<TextField
 							autoFocus
 							margin='dense'
 							id='state'
@@ -157,7 +158,7 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleStateChange}
 						/>
-						
+
 						<TextField
 							autoFocus
 							margin='dense'
@@ -174,7 +175,7 @@ class AddEvent extends React.Component {
 								label='Make Public'
 								onChange={this.handleCheckbox}
 							/>
-						</FormGroup> */}
+						</FormGroup>
 					</DialogContent>
 					<DialogActions>
 						<Button onClick={this.handleAddEvent}>Submit</Button>
