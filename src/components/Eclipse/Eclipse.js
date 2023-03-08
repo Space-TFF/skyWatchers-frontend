@@ -121,8 +121,8 @@ class Eclipse extends Component {
 									/>
 								</InfoWindow>
 							) : null}
-							<KmlLayer
-								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/5cae8594ae26c1d5ce9df841416e018ec577c692/src/components/Eclipse/Space%20Explorer.kml'
+						<KmlLayer
+								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/profile/src/components/Eclipse/Space-Explorer.kml'
 								options={{ preserveViewport: true }}
 							/>
 						</>
