@@ -91,12 +91,10 @@ class Eclipse extends Component {
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
 						zoom={10}
-						options={{ styles: MapConfig.stylesArray }}
-
+						// options={{ styles: MapConfig.stylesArray }}
 					>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
-						<KmlLayer url="./Space Explorer.kml" />
 							<Marker position={this.state.currentLocation} />
 							{locations.map((location) => {
 								return (
@@ -117,13 +115,16 @@ class Eclipse extends Component {
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })
-									}
-								>
+									}>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
 									/>
 								</InfoWindow>
 							) : null}
+							<KmlLayer
+								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/5cae8594ae26c1d5ce9df841416e018ec577c692/src/components/Eclipse/Space%20Explorer.kml'
+								options={{ preserveViewport: true }}
+							/>
 						</>
 					</GoogleMap>
 				</LoadScript>
