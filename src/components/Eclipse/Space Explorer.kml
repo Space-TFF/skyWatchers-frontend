@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Space Explorer</name>
+	<description>Path of the 2024 eclipse in the US</description>
+	<gx:CascadingStyle kml:id="__managed_style_0EDE1883AC27F3A2ED84">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff53a2c1</color>
+				<width>18</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1BB16259CA27F3A2ED83">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff53a2c1</color>
+				<width>12</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_05ED7E84D727F3A2ED83">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1BB16259CA27F3A2ED83</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0EDE1883AC27F3A2ED84</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="06034E3D4C27F3887B8C">
+		<name>Path center of path of totality</name>
+		<LookAt>
+			<longitude>-92.82079731640795</longitude>
+			<latitude>39.64334327967374</latitude>
+			<altitude>-669.2751769971325</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>4291371.566630602</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05ED7E84D727F3A2ED83</styleUrl>
+		<LineString>
+			<coordinates>
+				-106.3348736281002,23.25162918431761,96.54598048780464 -96.27044944952897,32.90989527770137,929.0360972915465 -89.33435080973463,37.66149484771417,443.9094017246076 -77.01745820286746,43.27681926064788,225.0170935557776 -65.68518625815489,47.2601178930217,198.662057744558 -52.83912104027534,49.17535876987164,11.77261415848221 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>

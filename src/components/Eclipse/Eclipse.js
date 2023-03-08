@@ -5,6 +5,7 @@ import {
 	Marker,
 	InfoWindow,
 } from '@react-google-maps/api';
+import { KmlLayer } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
 // import { Button } from '@mui/material';
@@ -91,9 +92,11 @@ class Eclipse extends Component {
 						center={this.state.currentLocation}
 						zoom={10}
 						options={{ styles: MapConfig.stylesArray }}
+
 					>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
+						<KmlLayer url="./Space Explorer.kml" />
 							<Marker position={this.state.currentLocation} />
 							{locations.map((location) => {
 								return (
