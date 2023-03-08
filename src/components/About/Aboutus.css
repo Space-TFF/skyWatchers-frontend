@@ -70,9 +70,14 @@ main {
   height: 100vh;
 }
 h4 {
+  display: flex;
+  justify-content: center;
   size: 14px;
 }
 
 h2 {
+  display: flex;
+  justify-content: center;
+  size: 14px;
   size: 30px;
 }

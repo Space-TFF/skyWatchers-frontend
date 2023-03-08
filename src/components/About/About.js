@@ -3,10 +3,9 @@ import React from 'react';
 import '../About/Aboutus.css';
 
 import SusanHargus from '../../img/SusanHargus.jpg';
-import MikePace from '../../img/MikePace.jpg';
+// import MikePace from '../../img/MikePace.jpg';
 import JackStubblefield from '../../img/JackStubblefield.jpg';
 import EvaGrace from '../../img/EvaGrace.jpg';
-// import starDrop from '../../img/starDrop.jpg';
 import { Container } from 'react-bootstrap';
 
 
@@ -64,7 +63,7 @@ class Aboutus extends React.Component {
         </Container>
 
 
-        <Container>
+        {/* <Container>
           <div className="flip-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">
@@ -85,7 +84,7 @@ class Aboutus extends React.Component {
             <h4>Full Stack Software Developer</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
-        </Container>
+        </Container> */}
         <Container>
           <div className="flip-card">
             <div className="flip-card-inner">
@@ -104,7 +103,9 @@ class Aboutus extends React.Component {
           <div className='textBox'>
             <h2>Susan Hargus</h2>
             <h4>Full Stack Software Developer</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>As a classical realist painter I am pursuing a career in software development 
+I love the opportunity coding provides for continual discovery.
+</p>
           </div>
         </Container>
         <Container>
@@ -126,7 +127,9 @@ class Aboutus extends React.Component {
           <div className='textBox'>
             <h2>Jack Stubblefield</h2>
             <h4>Full Stack Software Developer</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>I love learning new technologies and I am passionate about using software to make a difference in peoples lives.
+
+</p>
           </div>
         </Container>
       </div>
