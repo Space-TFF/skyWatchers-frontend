@@ -13,6 +13,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import AddressInput from './AddressInput';
 import Autocomplete from 'react-google-autocomplete';
+import {
+	GoogleMap,
+	LoadScript,
+	StandaloneSearchBox,
+	ScriptLoaded,
+} from '@react-google-maps/api';
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -108,6 +114,9 @@ class AddEvent extends React.Component {
 		}
 	};
 
+	onLoad = (ref) => (this.searchBox = ref);
+	onPlacesChanged = () => console.log(this.searchBox.getPlaces());
+
 	render() {
 		const { open } = this.state;
 		return (
@@ -147,7 +156,14 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleDescriptionChange}
 						/>
-						<AddressInput />
+						{/* <AddressInput /> */}
+						{/* <GoogleMap> */}
+						<StandaloneSearchBox
+							onLoad={this.onLoad}
+							onPlacesChanged={this.onPlacesChanged}>
+							<TextField />
+						</StandaloneSearchBox>
+						{/* </GoogleMap> */}
 						<TextField
 							autoFocus
 							margin='dense'
