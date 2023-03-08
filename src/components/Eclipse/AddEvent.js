@@ -11,6 +11,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import AddressInput from './AddressInput';
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -23,7 +24,7 @@ class AddEvent extends React.Component {
 			isPublic: false,
 			open: false,
 			error: false,
-			errorMessage: ''
+			errorMessage: '',
 		};
 	}
 
@@ -75,7 +76,7 @@ class AddEvent extends React.Component {
 				state: this.state.state,
 				time: 'TBD',
 				email: this.state.email,
-				RSVP: true
+				RSVP: true,
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -89,7 +90,7 @@ class AddEvent extends React.Component {
 					baseURL: process.env.REACT_APP_SERVER,
 					url: '/ROUTE',
 					headers: { Authorization: `Bearer ${jwt}` },
-					data: reqBody
+					data: reqBody,
 				};
 				console.log('YO', config);
 
@@ -100,7 +101,7 @@ class AddEvent extends React.Component {
 		} catch (error) {
 			this.setState({
 				error: true,
-				errorMessage: `An error occurred: ${error}`
+				errorMessage: `An error occurred: ${error}`,
 			});
 			console.log('post error' + error);
 		}
@@ -110,10 +111,14 @@ class AddEvent extends React.Component {
 		const { open } = this.state;
 		return (
 			<div>
-				<Button variant='contained' onClick={this.handleClickOpen}>
+				<Button
+					variant='contained'
+					onClick={this.handleClickOpen}>
 					Open form dialog
 				</Button>
-				<Dialog open={open} onClose={this.handleClose}>
+				<Dialog
+					open={open}
+					onClose={this.handleClose}>
 					<DialogTitle>Add Event</DialogTitle>
 					<DialogContent>
 						<DialogContentText>
@@ -141,7 +146,7 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleDescriptionChange}
 						/> */}
-						
+						<AddressInput />
 						{/* <TextField
 							autoFocus
 							margin='dense'
