@@ -52,7 +52,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<>
-				<div>
+				{/* <div> */}
 					<div className='eclipseBackground'>
 						<div className='timer'>
 							<p>Solar Eclipse begins in:</p>
@@ -71,7 +71,7 @@ class Home extends React.Component {
 						openNow={this.state.openDrawer}
 						handleClickClose={this.closeDrawerEvent}
 					/> */}
-				</div>
+				{/* </div> */}
 			</>
 		);
 	}

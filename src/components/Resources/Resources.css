@@ -1,17 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
 .page {
   background-color: black;
   width: 100vw;
 }
 
+
+h3{
+  font-size: 5rem;
+  color: white;
+  font-family: 'Tilt Neon', cursive;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.longeclipse{
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  background-color: white;
+}
+
+.festival{
+  width: 60vw;
+}
+
+
+.marcus{
+  width: 100vw;
+}
+
+
 .eclipseBandW2 {
   width: 100vw;
 }
 
-.products {
-  display: flex;
-  padding: 2rem;
-  justify-content: space-between;
-}
 
 .card button {
   align-self: center;
@@ -23,3 +46,83 @@
     margin-right: 25px; 
 }
 
+.additionalResources{
+  display: flex;
+  justify-content:space-around;
+}
+
+.gear{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+
+
+.safety{
+  display: flex;
+  /* background-color: white; */
+padding-left: 5rem;
+  padding-top: 3rem;
+padding-bottom: 3rem;
+}
+.eclipse{
+  /* background-image: url('../../img/abed-ismail-_jhUrn9o8yM-unsplash.jpg');
+  background-size: cover;
+  background-position: center, center; */
+  height: 55vh;
+  justify-content: center;
+}
+.eclipseWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.glass{
+  background-color: rgb(193, 227, 246);
+}
+
+.camera{
+  width: 25vw;
+}
+
+.glassesbw{
+  width: 40vw;
+}
+
+.photography{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  /* background-color: aliceblue; */
+  padding-left: 6rem;
+  padding-right:6rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.moon{
+  background-color: white;
+  width: 30vw;
+}
+
+.sunShadow{
+  width: 40vw
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('../../img/moon.jpg');
+  /* background-image: url('../../img/dave.jpg'); */
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

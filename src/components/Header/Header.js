@@ -1,21 +1,19 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
-import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg';
+// import { Navbar, Nav } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
+import headerImage from '../../img/logo.png';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import { withAuth0 } from "@auth0/auth0-react";
+import { NavLink } from "react-router-dom";
 import './Header.css'
 
 class Header extends React.Component {
     render() {
         return (
-
-            <Navbar
-                // className='background'
-                bg="black"
-                variant="dark">
-                <Container>
+            <div className='outerWrapper'>
+            <div className='wrapper'>
+                <div className='logo'>
                     <img
                         src={headerImage}
                         width='50'
@@ -23,32 +21,31 @@ class Header extends React.Component {
                         className="d-inline-block align-top"
                         alt="Nebula"
                     />
-                    <Navbar.Brand href='/'>Space Explorer</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Nav className="me-auto">
-                        <Nav.Link href='/'>Home</Nav.Link>
-                        <Nav.Link href='/eclipse'>Eclipse 2024</Nav.Link>
-                        <Nav.Link href='/resources'>Resources</Nav.Link>
-                        <Nav.Link href='/about'>About Us</Nav.Link>
-                        {this.props.auth0.isAuthenticated ? (
-                <>
-                        <Nav.Link href='/profile'>Profile</Nav.Link>
-                       <Logout/>
-                </>
-              ) : (
-                <Login/>
-                
-              )}
-                        
-                    </Nav>
+                    <h1>SkyWatcher</h1>
+                </div>
+                <div className='links'>
+                    <NavLink className='link' to='/'>Home</NavLink>
+                    <NavLink className='link' to='/eclipse'>Eclipse 2024</NavLink>
+                    <NavLink className='link' to='/resources'>Resources</NavLink>
+                    <NavLink className='link' to='/about'>About Us</NavLink>
+                    {this.props.auth0.isAuthenticated ? (
+                        <>
+                            <NavLink className='link' to='/profile'>Profile</NavLink>
+                            <Logout />
+                        </>
+                    ) : (
+                        <Login />
 
-                </Container>
-            </Navbar >
+                    )}
+                </div>
+
+            </div>
+            </div>
         );
     }
 }
 
 export default withAuth0(Header);
 
-//<Nav.Link href='/skywatch'>Sky Watch</Nav.Link>
-//<Nav.Link href='/spacewatch'>Space Watch</Nav.Link>
+//<NavLink href='/skywatch'>Sky Watch</NavLink>
+//<NavLink href='/spacewatch'>Space Watch</NavLink>
