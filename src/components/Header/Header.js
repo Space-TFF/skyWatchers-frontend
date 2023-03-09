@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Navbar, Nav } from 'react-bootstrap';
 // import { Container } from 'react-bootstrap';
-import headerImage from '../../img/aldebaran-s-uXchDIKs4qI-unsplash.jpg';
+import headerImage from '../../img/logo.png';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import { withAuth0 } from "@auth0/auth0-react";
