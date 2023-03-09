@@ -12,6 +12,7 @@ import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
+import { Icon } from '@iconify/react';
 
 const containerStyle = {
 	width: '80vw',
@@ -115,6 +116,7 @@ class Eclipse extends Component {
 								return (
 									<Marker
 										key={event.name}
+										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
 										position={{
 											lat: event.lat,
 											lng: event.lng,
