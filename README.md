@@ -6,6 +6,8 @@ Jack Stubblefield, Susan Harguss, Eva Smith
 
 ## Overview
 
+ The SkyWatcher website is to provide a centralized site for celestial information and upcoming events as well as assisting with travel information.  Our MVP will focus on the current path of the upcoming solar eclipse event in the USA. The path will be displayed on an interactive map which shows the cities on the eclipse path. The user can select the city they want to search and the search will return campgrounds and hotels  in the area with the ability to see user reviews, ratings, and contact info for booking.  There would be information on the time of the eclipse,  and include a countdown. Other information regarding the eclipse may be: tips for how to safely view a solar eclipse, and links on where to purchase gear related to the event.
+
 1. An admin can create and delete user accounts.
 2. A person can register on the website as a user.
 3. A user can view and click on user added events on a map for viewing the eclipse.
