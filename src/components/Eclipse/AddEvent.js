@@ -26,6 +26,7 @@ class AddEvent extends React.Component {
 			open: false,
 			error: false,
 			errorMessage: '',
+			newEventAddress: '',
 		};
 
 		this.autocomplete = null;
@@ -121,6 +122,16 @@ class AddEvent extends React.Component {
 	onPlaceChanged() {
 		if (this.autocomplete !== null) {
 			console.log(this.autocomplete.getPlace());
+			console.log(this.autocomplete.getBounds());
+			let query = this.autocomplete.getPlace();
+			let newLocationInfo = {
+				address: query.formatted_address,
+				lat: query.geometry.location.lat,
+				lng: query.geometry.location.lng,
+
+			}
+			console.log(newLocationInfo)
+			this.setState({newEventAddress: newLocationInfo })
 		} else {
 			console.log('Autocomplete is not loaded yet!');
 		}
@@ -176,17 +187,6 @@ class AddEvent extends React.Component {
 								variant='standard'
 							/>
 						</Autocomplete>
-
-						<TextField
-							autoFocus
-							margin='dense'
-							id='state'
-							label={this.props.state}
-							type='text'
-							fullWidth
-							variant='standard'
-							onChange={this.handleStateChange}
-						/>
 
 						<TextField
 							autoFocus
