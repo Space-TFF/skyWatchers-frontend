@@ -44,6 +44,15 @@ OUT - What will your product not do.
 
 ## Clearly defined API endpoints with sample responses
 
+REACT_APP=
+PORT=
+DB_URL=
+REACT_APP_SERVER=
+REACT_APP_DOMAIN=
+REACT_APP_CLIENTID=
+REACT_APP_MAP_KEY=
+
+
 ## Clearly defined database schemas
 
  placeSchema
