@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
 import eclipse from '../../img/eclipse.jpg';
-import moon from '../../img/moon.jpg';
+// import moon from '../../img/moon.jpg';
 import manyglasses from '../../img/manyglasses.jpg';
 import kids from '../../img/kids.jpg';
 import tshirt from '../../img/tshirt.jpg';
@@ -22,7 +22,9 @@ class Resources extends React.Component {
     return (
 
       <div className="page">
-        <img src={eclipseBandW2} alt="eclipseBandW2" className="eclipseBandW2" />
+        {/* <img src={eclipseBandW2} alt="eclipseBandW2" className="eclipseBandW2" /> */}
+
+        
         <div className='eclipseWrap'>
           <img src={eclipse} alt="eclipseBandW2" className="eclipse" />
         </div>
