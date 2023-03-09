@@ -1,6 +1,6 @@
 import React from 'react';
-import SelectEventCard from '../Eclipse/SelectEventCard';
-import SideDrawer from '../Eclipse/SideDrawer.js';
+// import SelectEventCard from '../Eclipse/SelectEventCard';
+// import SideDrawer from '../Eclipse/SideDrawer.js';
 import CountdownTimer from './CountdownTimer.js';
 import './Home.css';
 import AddEvent from '../Eclipse/AddEvent.js';
