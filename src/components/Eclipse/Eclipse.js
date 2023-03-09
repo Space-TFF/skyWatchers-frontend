@@ -156,7 +156,7 @@ class Eclipse extends Component {
 							) : null}
 
 							<KmlLayer
-								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/profile/src/components/Eclipse/Space-Explorer.kml'
+								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/dev/src/components/Eclipse/Totality.kml'
 								options={{ preserveViewport: true }}
 							/>
 						</>
