@@ -89,7 +89,7 @@ class Eclipse extends Component {
 
 				<LoadScript
 					googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
-					libraries={['places']}>
+					libraries={['places', 'geometry']}>
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}

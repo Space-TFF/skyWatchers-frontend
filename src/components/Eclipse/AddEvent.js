@@ -126,8 +126,8 @@ class AddEvent extends React.Component {
 			let query = this.autocomplete.getPlace();
 			let newLocationInfo = {
 				address: query.formatted_address,
-				lat: query.geometry.location.lat,
-				lng: query.geometry.location.lng,
+				lat: query.geometry.location.lat(),
+				lng: query.geometry.location.lng(),
 
 			}
 			console.log(newLocationInfo)
