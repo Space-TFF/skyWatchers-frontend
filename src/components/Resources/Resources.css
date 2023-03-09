@@ -34,11 +34,6 @@ h3{
   width: 100vw;
 }
 
-.products {
-  display: flex;
-  padding: 2rem;
-  justify-content: space-between;
-}
 
 .card button {
   align-self: center;
@@ -52,11 +47,12 @@ h3{
 
 .additionalResources{
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
 }
 
 .gear{
   display: flex;
+  justify-content: center;
   align-items: center;
   padding-bottom: 3rem;
 }
