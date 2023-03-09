@@ -9,7 +9,8 @@ import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
 import AddEvent from './AddEvent';
 import { KmlLayer } from '@react-google-maps/api';
-import './Eclipse.css'
+import './Eclipse.css';
+
 
 const containerStyle = {
 	width: '80vw',
@@ -49,7 +50,10 @@ class Eclipse extends Component {
 			currentLocation: {},
 			selectedEvent: {},
 		};
+
 	}
+
+	
 
 	/**
 	 * @param {obj} position - this is the object returned from the geolocation API

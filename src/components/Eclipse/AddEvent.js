@@ -11,22 +11,28 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import AddressInput from './AddressInput';
 import { Autocomplete } from '@react-google-maps/api';
+import dayjs from 'dayjs';
+
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimeField } from '@mui/x-date-pickers/TimeField';
+
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: '',
 			description: '',
-			city: '',
-			state: '',
-			email: '',
+			address: '',
+			email: '', // this will be from auth0
 			isPublic: false,
+			lat: '',
+			lng: '',
+			time: '',
 			open: false,
 			error: false,
 			errorMessage: '',
-			newEventAddress: '',
 		};
 
 		this.autocomplete = null;
@@ -78,11 +84,11 @@ class AddEvent extends React.Component {
 			const reqBody = {
 				name: this.state.name,
 				description: this.state.description,
-				city: this.state.city,
-				state: this.state.state,
-				time: 'TBD',
+				address: this.state.address,
+				time: this.state.time,
 				email: this.state.email,
-				RSVP: true,
+				lat: this.state.lat,
+				lng: this.state.lng,
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -122,16 +128,12 @@ class AddEvent extends React.Component {
 	onPlaceChanged() {
 		if (this.autocomplete !== null) {
 			console.log(this.autocomplete.getPlace());
-			console.log(this.autocomplete.getBounds());
 			let query = this.autocomplete.getPlace();
-			let newLocationInfo = {
+			this.setState({
 				address: query.formatted_address,
 				lat: query.geometry.location.lat(),
 				lng: query.geometry.location.lng(),
-
-			}
-			console.log(newLocationInfo)
-			this.setState({newEventAddress: newLocationInfo })
+			});
 		} else {
 			console.log('Autocomplete is not loaded yet!');
 		}
@@ -175,6 +177,20 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleDescriptionChange}
 						/>
+
+						<LocalizationProvider dateAdapter={AdapterDayjs}>
+							<TimeField
+								label='Time'
+								fullWidth
+								multiline
+								margin='dense'
+								variant='standard'
+								defaultValue={dayjs()}
+								onChange={(newValue) =>
+									this.setState({ time: newValue })
+								}
+							/>
+						</LocalizationProvider>
 
 						<Autocomplete
 							onLoad={this.onLoad}
