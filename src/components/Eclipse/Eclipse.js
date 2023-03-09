@@ -7,7 +7,7 @@ import {
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import AddEvent from './AddEvent';
 
 const containerStyle = {
