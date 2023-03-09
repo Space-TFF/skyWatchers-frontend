@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import MediaCard from "../Eclipse/SelectEventCard";
+// import MediaCard from "../Eclipse/SelectEventCard";
 import './Profile.css'
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
