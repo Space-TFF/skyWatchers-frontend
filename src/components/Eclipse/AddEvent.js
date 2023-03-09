@@ -12,13 +12,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import AddressInput from './AddressInput';
-import Autocomplete from 'react-google-autocomplete';
-import {
-	GoogleMap,
-	LoadScript,
-	StandaloneSearchBox,
-	ScriptLoaded,
-} from '@react-google-maps/api';
+import { Autocomplete } from '@react-google-maps/api';
 class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -33,6 +27,10 @@ class AddEvent extends React.Component {
 			error: false,
 			errorMessage: '',
 		};
+
+		this.autocomplete = null;
+		this.onLoad = this.onLoad.bind(this);
+		this.onPlaceChanged = this.onPlaceChanged.bind(this);
 	}
 
 	handleClickOpen = () => {
@@ -114,9 +112,19 @@ class AddEvent extends React.Component {
 		}
 	};
 
-	onLoad = (ref) => (this.searchBox = ref);
-	onPlacesChanged = () => console.log(this.searchBox.getPlaces());
+	onLoad(autocomplete) {
+		console.log('autocomplete: ', autocomplete);
 
+		this.autocomplete = autocomplete;
+	}
+
+	onPlaceChanged() {
+		if (this.autocomplete !== null) {
+			console.log(this.autocomplete.getPlace());
+		} else {
+			console.log('Autocomplete is not loaded yet!');
+		}
+	}
 	render() {
 		const { open } = this.state;
 		return (
@@ -135,7 +143,7 @@ class AddEvent extends React.Component {
 							To add an event to this location, please fill out
 							the following information.
 						</DialogContentText>
-						<TextField
+						{/* <TextField
 							autoFocus
 							margin='dense'
 							id='name'
@@ -155,16 +163,15 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleDescriptionChange}
-						/>
-						{/* <AddressInput /> */}
-						{/* <GoogleMap> */}
-						<StandaloneSearchBox
+						/> */}
+
+						<Autocomplete
 							onLoad={this.onLoad}
-							onPlacesChanged={this.onPlacesChanged}>
+							onPlaceChanged={this.onPlaceChanged}>
 							<TextField />
-						</StandaloneSearchBox>
-						{/* </GoogleMap> */}
-						<TextField
+						</Autocomplete>
+
+						{/* <TextField
 							autoFocus
 							margin='dense'
 							id='state'
@@ -184,17 +191,17 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleEmailChange}
-						/>
-						<FormGroup>
+						/> */}
+						{/* <FormGroup>
 							<FormControlLabel
 								control={<Checkbox />}
 								label='Make Public'
 								onChange={this.handleCheckbox}
 							/>
-						</FormGroup>
+						</FormGroup> */}
 					</DialogContent>
 					<DialogActions>
-						<Button onClick={this.handleAddEvent}>Submit</Button>
+						{/* <Button onClick={this.handleAddEvent}>Submit</Button> */}
 					</DialogActions>
 				</Dialog>
 			</div>
