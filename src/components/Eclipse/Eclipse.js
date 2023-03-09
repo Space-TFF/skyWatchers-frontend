@@ -112,17 +112,17 @@ class Eclipse extends Component {
 									<Marker
 										key={event.name}
 										position={{lat: event.lat, lng: event.lng}}
-										// onClick={() =>
-										// 	this.setState({
-										// 		selectedEvent: location,
-										// 	})
-										// }
+										onClick={() =>
+											this.setState({
+												selectedEvent: event,
+											})
+										}
 									/>
 								);
 							})}
-							{this.state.selectedEvent.location ? (
+							{this.state.selectedEvent.name ? (
 								<InfoWindow
-									position={this.state.selectedEvent.location}
+									position={{lat: this.state.selectedEvent.lat, lng: this.state.selectedEvent.lng }}
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })
