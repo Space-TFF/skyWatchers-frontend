@@ -6,43 +6,19 @@ import {
 	InfoWindow,
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
-import SelectEventCard from './SelectedEventCard';
+import SelectEventCard from './SelectEventCard';
 import AddEvent from './AddEvent';
 import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
+import { SampleEvents } from '../CampSeedInfo/SampleEvents';
 
 const containerStyle = {
 	width: '80vw',
 	height: '80vh',
 	margin: '4em auto',
 };
-
-//TODO: These will come from the DB as user created events (or private marked locations)
-const locations = [
-	{
-		name: 'DeltaV Code School',
-		location: {
-			lat: 41.971187159763886,
-			lng: -91.6559992135134,
-		},
-	},
-	{
-		name: 'Palisades-Kepler State Park',
-		location: {
-			lat: 41.92751487030226,
-			lng: -91.5055285794566,
-		},
-	},
-	{
-		name: 'Custom Event Location!',
-		location: {
-			lat: 41.95690820284285,
-			lng: -91.68765411996654,
-		},
-	},
-];
 
 class Eclipse extends Component {
 	constructor(props) {
@@ -87,6 +63,7 @@ class Eclipse extends Component {
 
 	render() {
 		console.log(this.props.auth0.isAuthenticated);
+		console.log(SampleEvents);
 		return (
 			<>
 				<AddEvent
@@ -128,6 +105,25 @@ class Eclipse extends Component {
 									/>
 								);
 							})}
+
+							{SampleEvents.locations.map((sampleEvent) => {
+								return (
+									<Marker
+										key={sampleEvent.name}
+										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
+										position={{
+											lat: sampleEvent.lat,
+											lng: sampleEvent.lng,
+										}}
+										onClick={() =>
+											this.setState({
+												selectedEvent: sampleEvent,
+											})
+										}
+									/>
+								);
+							})}
+
 							{this.state.selectedEvent.name ? (
 								<InfoWindow
 									position={{
@@ -140,9 +136,12 @@ class Eclipse extends Component {
 									}>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
+										description={this.state.selectedEvent.description}
+										image={this.state.selectedEvent.image}
 									/>
 								</InfoWindow>
 							) : null}
+
 							<KmlLayer
 								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/profile/src/components/Eclipse/Space-Explorer.kml'
 								options={{ preserveViewport: true }}
