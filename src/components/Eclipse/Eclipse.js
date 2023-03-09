@@ -11,9 +11,7 @@ import AddEvent from './AddEvent';
 import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
 import axios from 'axios';
-import { withAuth0 } from "@auth0/auth0-react";
-
-
+import { withAuth0 } from '@auth0/auth0-react';
 
 const containerStyle = {
 	width: '80vw',
@@ -75,7 +73,8 @@ class Eclipse extends Component {
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(this.success);
 		//TODO: add error handling if the user denies access to their location
-		if(this.props.auth0.isAuthenticated) this.setState({email: this.props.auth0.user.email})
+		if (this.props.auth0.isAuthenticated)
+			this.setState({ email: this.props.auth0.user.email });
 	}
 
 	getAllEvents = async () => {
@@ -83,7 +82,7 @@ class Eclipse extends Component {
 			`${process.env.REACT_APP_SERVER}/events`
 		);
 		console.log(response.data);
-		this.setState({publicEvents: response.data})
+		this.setState({ publicEvents: response.data });
 	};
 
 	render() {
@@ -116,7 +115,10 @@ class Eclipse extends Component {
 								return (
 									<Marker
 										key={event.name}
-										position={{lat: event.lat, lng: event.lng}}
+										position={{
+											lat: event.lat,
+											lng: event.lng,
+										}}
 										onClick={() =>
 											this.setState({
 												selectedEvent: event,
@@ -127,7 +129,10 @@ class Eclipse extends Component {
 							})}
 							{this.state.selectedEvent.name ? (
 								<InfoWindow
-									position={{lat: this.state.selectedEvent.lat, lng: this.state.selectedEvent.lng }}
+									position={{
+										lat: this.state.selectedEvent.lat,
+										lng: this.state.selectedEvent.lng,
+									}}
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })

@@ -26,7 +26,7 @@ class AddEvent extends React.Component {
 			description: '',
 			address: '',
 			email: undefined, // this will be from auth0
-			isPublic: '',
+			isPublic: false,
 			lat: '',
 			lng: '',
 			time: '',
