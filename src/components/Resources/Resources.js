@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './Resources.css';
-import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
@@ -15,6 +14,7 @@ import resources from '../../img/resources.jpg';
 import festival from '../../img/festival.jpg';
 import jason from '../../img/jason.jpg';
 import marcus from '../../img/marcus.jpg';
+import sunShadow from '../../img/sunShadow.jpg';
 
 class Resources extends React.Component {
   render() {
@@ -28,15 +28,14 @@ class Resources extends React.Component {
         </div>
 
         <h3>Resources</h3>
-        <Container className="products">
-
-        </Container>
 
 
-        <div className='additionalResources gear'>Gear
-          {/* <img src={concert} alt="concert" className="camera" /> */}
+
+        <div className='additionalResources gear'>
+
           <img src={festival} alt="festival" className="festival" />
-          <Container>          <Card style={{ width: '20rem' }}>
+
+          <Card style={{ width: '20rem' }}>
             <Card.Img variant="top" src={tshirt} alt="tshirt" className="tshirt" />
             <Card.Body style={{ width: '20rem' }} className="card">
               <Card.Title>T-Shirts</Card.Title>
@@ -46,12 +45,13 @@ class Resources extends React.Component {
                 Buy
               </Button>
             </Card.Body>
-          </Card></Container></div>
-        {/* 
-          <img src={marcus} alt="lunar eclipse" className="marcus" /> */}
+          </Card>
+        </div>
+
+        <div className='parallax'>
 
         <div className='additionalResources safety'>
-          <Container>          <Card style={{ width: '28rem' }}>
+          <Card style={{ width: '28rem' }}>
             <Card.Img variant="top" src={kids} alt="kids" className="kids" />
             <Card.Body style={{ width: '28rem' }} className="card">
               <Card.Title>Safety</Card.Title>
@@ -62,16 +62,18 @@ class Resources extends React.Component {
                 Safety
               </Button>
             </Card.Body>
-          </Card></Container>
+          </Card>
           <img src={manyglasses} alt="Eclipse Glasses" className="glassesbw" />
-          <Container></Container></div>
+        </div>
 
 
-        <div className='additionalResources safety glass'>
+
+
+        <div className='photography safety'>
 
           <img src={jason} alt="glassesbw" className="glassesbw" />
-          <Container>          <Card style={{ width: '28rem' }}>
-            <Card.Img variant="top" src={glasses} alt="glasses" className="glasses" />
+          <Card style={{ width: '28rem' }}>
+            <Card.Img style={{ width: '28rem' }} variant="top" src={glasses} alt="glasses" className="glasses" />
             <Card.Body style={{ width: '28rem' }} className="card">
               <Card.Title>Gear</Card.Title>
               <Card.Text>
@@ -81,37 +83,32 @@ class Resources extends React.Component {
                 Buy
               </Button>
             </Card.Body>
-          </Card></Container></div>
+          </Card></div>
 
 
-
-{/* 
-        <div className='longeclipse'>
-          <img src={moon} alt="moon" className="moon" />
-
-        </div> */}
 
         <div className='photography'>
-          {/* <img src={camera} alt="eclipseBandW2" className="camera" /> */}
-          <Container>
-            <Card style={{ width: '27rem' }} className="card">
-              <Card.Img variant="top" src={resources} alt="glasses" className="resources" />
-              <Card.Body style={{ width: '27rem' }} className="card">
-                <Card.Title>Resources</Card.Title>
-                <Card.Text>
-                  Featured in The New Product Showcase - Sky and Telescope Magazine
-                </Card.Text>
-                <Button variant="primary" onClick={() => window.open('https://www.solareclipsetimer.com/index.html', '_blank')}>
-                  Resources
-                </Button>
-              </Card.Body>
-            </Card></Container>
-            <img src={moon} alt="moon" className="moon" /></div>
 
-            <img src={marcus} alt="lunar eclipse" className="marcus" />
+          <Card style={{ width: '27rem' }} className="card">
+            <Card.Img variant="top" src={resources} alt="glasses" className="resources" />
+            <Card.Body style={{ width: '27rem' }} className="card">
+              <Card.Title>Resources</Card.Title>
+              <Card.Text>
+                Featured in The New Product Showcase - Sky and Telescope Magazine
+              </Card.Text>
+              <Button variant="primary" onClick={() => window.open('https://www.solareclipsetimer.com/index.html', '_blank')}>
+                Resources
+              </Button>
+            </Card.Body>
+          </Card>
+          <img src={sunShadow} alt="sunShadow" className="sunShadow" /></div>
+
+
+          </div>
+        <img src={marcus} alt="lunar eclipse" className="marcus" />
+
+
       </div>
-
-
     );
 
 

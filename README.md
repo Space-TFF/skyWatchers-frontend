@@ -50,6 +50,8 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
   Photo by <a href="https://unsplash.com/@thejasonhowell?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jason Howell</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   Photo by <a href="https://unsplash.com/@marcusdallcol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcus Dall Col</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   Photo by <a href="https://unsplash.com/@maximebhm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Maxime Bhm</a> on <a href="https://unsplash.com/s/photos/outdoor-festival?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  Photo by <a href="https://unsplash.com/@davehoefler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Hoefler</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
   
   
   
