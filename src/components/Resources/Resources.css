@@ -1,7 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
 .page {
   background-color: black;
   width: 100vw;
 }
+
+
+h3{
+  font-size: 5rem;
+  color: white;
+  font-family: 'Tilt Neon', cursive;
+  text-align: center;
+}
+
+.longeclipse{
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  background-color: white;
+}
+
+.festival{
+  width: 60vw;
+}
+
+
+.marcus{
+  width: 100vw;
+}
+
 
 .eclipseBandW2 {
   width: 100vw;
@@ -23,3 +50,63 @@
     margin-right: 25px; 
 }
 
+.additionalResources{
+  display: flex;
+  justify-content: center;
+}
+
+.gear{
+  display: flex;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+
+
+.safety{
+  display: flex;
+  background-color: white;
+padding-left: 5rem;
+  padding-top: 3rem;
+padding-bottom: 3rem;
+}
+.eclipse{
+  /* background-image: url('../../img/abed-ismail-_jhUrn9o8yM-unsplash.jpg');
+  background-size: cover;
+  background-position: center, center; */
+  height: 55vh;
+  justify-content: center;
+}
+.eclipseWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.glass{
+  background-color: rgb(193, 227, 246);
+}
+
+.camera{
+  width: 25vw;
+}
+
+.glassesbw{
+  width: 40vw;
+}
+
+.photography{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  padding-left: 6rem;
+  padding-right:6rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.moon{
+  background-color: white;
+  width: 30vw;
+}
