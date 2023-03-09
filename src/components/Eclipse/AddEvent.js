@@ -143,7 +143,7 @@ class AddEvent extends React.Component {
 							To add an event to this location, please fill out
 							the following information.
 						</DialogContentText>
-						{/* <TextField
+						<TextField
 							autoFocus
 							margin='dense'
 							id='name'
@@ -163,15 +163,21 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleDescriptionChange}
-						/> */}
+						/>
 
 						<Autocomplete
 							onLoad={this.onLoad}
 							onPlaceChanged={this.onPlaceChanged}>
-							<TextField />
+							<TextField
+								autoFocus
+								margin='normal'
+								type='text'
+								fullWidth
+								variant='standard'
+							/>
 						</Autocomplete>
 
-						{/* <TextField
+						<TextField
 							autoFocus
 							margin='dense'
 							id='state'
@@ -191,17 +197,17 @@ class AddEvent extends React.Component {
 							fullWidth
 							variant='standard'
 							onChange={this.handleEmailChange}
-						/> */}
-						{/* <FormGroup>
+						/>
+						<FormGroup>
 							<FormControlLabel
 								control={<Checkbox />}
 								label='Make Public'
 								onChange={this.handleCheckbox}
 							/>
-						</FormGroup> */}
+						</FormGroup>
 					</DialogContent>
 					<DialogActions>
-						{/* <Button onClick={this.handleAddEvent}>Submit</Button> */}
+						<Button onClick={this.handleAddEvent}>Submit</Button>
 					</DialogActions>
 				</Dialog>
 			</div>
