@@ -13,6 +13,8 @@ import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { SampleEvents } from '../CampSeedInfo/SampleEvents';
+import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
+import { Container } from '@mui/material';
 
 const containerStyle = {
 	width: '80vw',
@@ -66,6 +68,15 @@ class Eclipse extends Component {
 		console.log(SampleEvents);
 		return (
 			<>
+				<img
+					src={eclipseBandW2}
+					alt='eclipseBandW2'
+					className='eclipseBandW2'
+				/>
+				<h3 className='mapTitle'>
+					Path of Solar Eclipse, April 8, 2024
+				</h3>
+
 				<AddEvent
 					name='Event Name'
 					description='Description'
@@ -136,7 +147,9 @@ class Eclipse extends Component {
 									}>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
-										description={this.state.selectedEvent.description}
+										description={
+											this.state.selectedEvent.description
+										}
 										image={this.state.selectedEvent.image}
 									/>
 								</InfoWindow>

@@ -1,3 +1,9 @@
 div.pac-container {
     z-index: 99999999999 !important;
 }
+
+.mapTitle{
+    background-color: black;
+    font-size: 3rem;
+    padding: 1rem;
+}
