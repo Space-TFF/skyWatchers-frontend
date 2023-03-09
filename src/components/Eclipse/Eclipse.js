@@ -10,7 +10,7 @@ import SelectEventCard from './SelectedEventCard';
 import AddEvent from './AddEvent';
 import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
-
+import axios from 'axios';
 
 const containerStyle = {
 	width: '80vw',
@@ -49,11 +49,9 @@ class Eclipse extends Component {
 		this.state = {
 			currentLocation: {},
 			selectedEvent: {},
+			publicEvents: [],
 		};
-
 	}
-
-	
 
 	/**
 	 * @param {obj} position - this is the object returned from the geolocation API
@@ -76,7 +74,13 @@ class Eclipse extends Component {
 		//TODO: add error handling if the user denies access to their location
 	}
 
-	createEvent = () => {};
+	getAllEvents = async () => {
+		let response = await axios.get(
+			`${process.env.REACT_APP_SERVER}/events`
+		);
+		console.log(response.data);
+		this.setState({publicEvents: response.data})
+	};
 
 	render() {
 		return (
@@ -98,20 +102,21 @@ class Eclipse extends Component {
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
 						zoom={10}
+						onLoad={this.getAllEvents}
 						options={{ styles: MapConfig.stylesArray }}>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
 							<Marker position={this.state.currentLocation} />
-							{locations.map((location) => {
+							{this.state.publicEvents.map((event) => {
 								return (
 									<Marker
-										key={location.name}
-										position={location.location}
-										onClick={() =>
-											this.setState({
-												selectedEvent: location,
-											})
-										}
+										key={event.name}
+										position={{lat: event.lat, lng: event.lng}}
+										// onClick={() =>
+										// 	this.setState({
+										// 		selectedEvent: location,
+										// 	})
+										// }
 									/>
 								);
 							})}

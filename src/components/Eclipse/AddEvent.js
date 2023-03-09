@@ -26,7 +26,7 @@ class AddEvent extends React.Component {
 			description: '',
 			address: '',
 			email: '', // this will be from auth0
-			isPublic: false,
+			isPublic: '',
 			lat: '',
 			lng: '',
 			time: '',
@@ -89,6 +89,7 @@ class AddEvent extends React.Component {
 				email: this.state.email,
 				lat: this.state.lat,
 				lng: this.state.lng,
+				isPublic: this.state.isPublic
 			};
 			console.log('POST reqBody', reqBody);
 
