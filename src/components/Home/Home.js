@@ -3,9 +3,9 @@ import React from 'react';
 // import SideDrawer from '../Eclipse/SideDrawer.js';
 import CountdownTimer from './CountdownTimer.js';
 import './Home.css';
-// import AddEvent from '../Eclipse/AddEvent.js';
-// import Button from '@mui/material/Button';
-
+import AddEvent from '../Eclipse/AddEvent.js';
+import Button from '@mui/material/Button';
+import Autocomplete from 'react-google-autocomplete';
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
@@ -52,7 +52,7 @@ class Home extends React.Component {
 	render() {
 		return (
 			<>
-				<div>
+				{/* <div> */}
 					<div className='eclipseBackground'>
 						<div className='timer'>
 							<p>Solar Eclipse begins in:</p>
@@ -71,7 +71,7 @@ class Home extends React.Component {
 						openNow={this.state.openDrawer}
 						handleClickClose={this.closeDrawerEvent}
 					/> */}
-				</div>
+				{/* </div> */}
 			</>
 		);
 	}

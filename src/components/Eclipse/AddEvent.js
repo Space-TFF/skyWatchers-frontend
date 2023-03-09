@@ -11,6 +11,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { Autocomplete } from '@react-google-maps/api';
+import dayjs from 'dayjs';
+
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimeField } from '@mui/x-date-pickers/TimeField';
 
 class AddEvent extends React.Component {
 	constructor(props) {
@@ -18,14 +24,20 @@ class AddEvent extends React.Component {
 		this.state = {
 			name: '',
 			description: '',
-			city: '',
-			state: '',
-			email: '',
+			address: '',
+			email: undefined, // this will be from auth0
 			isPublic: false,
+			lat: '',
+			lng: '',
+			time: '',
 			open: false,
 			error: false,
 			errorMessage: '',
 		};
+
+		this.autocomplete = null;
+		this.onLoad = this.onLoad.bind(this);
+		this.onPlaceChanged = this.onPlaceChanged.bind(this);
 	}
 
 	handleClickOpen = () => {
@@ -60,6 +72,11 @@ class AddEvent extends React.Component {
 		this.setState({ isPublic: event.target.checked });
 	};
 
+	componentDidMount() {
+		if (this.props.auth0.isAuthenticated)
+			this.setState({ email: this.props.auth0.user.email });
+	}
+
 	//when "submit" is clicked on "add event" form
 	handleAddEvent = async (event) => {
 		event.preventDefault();
@@ -71,12 +88,13 @@ class AddEvent extends React.Component {
 			// form information being sent to server
 			const reqBody = {
 				name: this.state.name,
-				// description:this.state.description,
-				city: this.state.city,
-				state: this.state.state,
-				time: 'TBD',
-				//  email:this.state.email,
-				RSVP: true,
+				description: this.state.description,
+				address: this.state.address,
+				time: this.state.time,
+				email: this.props.auth0.user.email,
+				lat: this.state.lat,
+				lng: this.state.lng,
+				isPublic: this.state.isPublic,
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -88,15 +106,15 @@ class AddEvent extends React.Component {
 				const config = {
 					method: 'post',
 					baseURL: process.env.REACT_APP_SERVER,
-					url: '/ROUTE',
+					url: '/events',
 					headers: { Authorization: `Bearer ${jwt}` },
-					reqBody: reqBody,
+					data: reqBody,
 				};
-				console.log('', config);
+				console.log('YO', config);
 
-				//   //let axiosData = await axios(config);
-				let value = await axios(config);
-				console.log('post success??', value);
+				let axiosData = await axios(config).then((res) => {
+					console.log('yoyoyo', res.data);
+				});
 			}
 		} catch (error) {
 			this.setState({
@@ -107,14 +125,37 @@ class AddEvent extends React.Component {
 		}
 	};
 
+	onLoad(autocomplete) {
+		console.log('autocomplete: ', autocomplete);
+
+		this.autocomplete = autocomplete;
+	}
+
+	onPlaceChanged() {
+		if (this.autocomplete !== null) {
+			console.log(this.autocomplete.getPlace());
+			let query = this.autocomplete.getPlace();
+			this.setState({
+				address: query.formatted_address,
+				lat: query.geometry.location.lat(),
+				lng: query.geometry.location.lng(),
+			});
+		} else {
+			console.log('Autocomplete is not loaded yet!');
+		}
+	}
 	render() {
 		const { open } = this.state;
 		return (
 			<div>
-				<Button variant='contained' onClick={this.handleClickOpen}>
-					Open form dialog
+				<Button
+					variant='contained'
+					onClick={this.handleClickOpen}>
+					Create your own event!
 				</Button>
-				<Dialog open={open} onClose={this.handleClose}>
+				<Dialog
+					open={open}
+					onClose={this.handleClose}>
 					<DialogTitle>Add Event</DialogTitle>
 					<DialogContent>
 						<DialogContentText>
@@ -142,37 +183,33 @@ class AddEvent extends React.Component {
 							variant='standard'
 							onChange={this.handleDescriptionChange}
 						/>
-						<TextField
-							autoFocus
-							margin='dense'
-							id='city'
-							label={this.props.city}
-							type='text'
-							fullWidth
-							variant='standard'
-							onChange={this.handleCityChange}
-						/>
-						<TextField
-							autoFocus
-							margin='dense'
-							id='state'
-							label={this.props.state}
-							type='text'
-							fullWidth
-							variant='standard'
-							onChange={this.handleStateChange}
-						/>
 
-						<TextField
-							autoFocus
-							margin='dense'
-							id='email'
-							label={this.props.email}
-							type='email'
-							fullWidth
-							variant='standard'
-							onChange={this.handleEmailChange}
-						/>
+						<LocalizationProvider dateAdapter={AdapterDayjs}>
+							<TimeField
+								label='Time'
+								fullWidth
+								multiline
+								margin='dense'
+								variant='standard'
+								defaultValue={dayjs()}
+								onChange={(newValue) =>
+									this.setState({ time: newValue })
+								}
+							/>
+						</LocalizationProvider>
+
+						<Autocomplete
+							onLoad={this.onLoad}
+							onPlaceChanged={this.onPlaceChanged}>
+							<TextField
+								autoFocus
+								margin='normal'
+								type='text'
+								fullWidth
+								variant='standard'
+							/>
+						</Autocomplete>
+
 						<FormGroup>
 							<FormControlLabel
 								control={<Checkbox />}

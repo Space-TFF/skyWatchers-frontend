@@ -7,8 +7,12 @@ import {
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectedEventCard';
-// import { Button } from '@mui/material';
 import AddEvent from './AddEvent';
+import { KmlLayer } from '@react-google-maps/api';
+import './Eclipse.css';
+import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
+import { Icon } from '@iconify/react';
 
 const containerStyle = {
 	width: '80vw',
@@ -47,6 +51,7 @@ class Eclipse extends Component {
 		this.state = {
 			currentLocation: {},
 			selectedEvent: {},
+			publicEvents: [],
 		};
 	}
 
@@ -69,11 +74,20 @@ class Eclipse extends Component {
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(this.success);
 		//TODO: add error handling if the user denies access to their location
+		if (this.props.auth0.isAuthenticated)
+			this.setState({ email: this.props.auth0.user.email });
 	}
 
-	createEvent = () => {};
+	getAllEvents = async () => {
+		let response = await axios.get(
+			`${process.env.REACT_APP_SERVER}/events`
+		);
+		console.log(response.data);
+		this.setState({ publicEvents: response.data });
+	};
 
 	render() {
+		console.log(this.props.auth0.isAuthenticated);
 		return (
 			<>
 				<AddEvent
@@ -85,42 +99,55 @@ class Eclipse extends Component {
 					open={this.state.openAdd}
 					handleClickClose={this.handleClickClose}
 				/>
-				<LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_KEY}>
+
+				<LoadScript
+					googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
+					libraries={['places', 'geometry']}>
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={this.state.currentLocation}
 						zoom={10}
-						options={{ styles: MapConfig.stylesArray }}
-					>
+						onLoad={this.getAllEvents}
+						options={{ styles: MapConfig.stylesArray }}>
 						{/* Child components, such as markers, info windows, etc. */}
 						<>
 							<Marker position={this.state.currentLocation} />
-							{locations.map((location) => {
+							{this.state.publicEvents.map((event) => {
 								return (
 									<Marker
-										key={location.name}
-										position={location.location}
+										key={event.name}
+										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
+										position={{
+											lat: event.lat,
+											lng: event.lng,
+										}}
 										onClick={() =>
 											this.setState({
-												selectedEvent: location,
+												selectedEvent: event,
 											})
 										}
 									/>
 								);
 							})}
-							{this.state.selectedEvent.location ? (
+							{this.state.selectedEvent.name ? (
 								<InfoWindow
-									position={this.state.selectedEvent.location}
+									position={{
+										lat: this.state.selectedEvent.lat,
+										lng: this.state.selectedEvent.lng,
+									}}
 									clickable={true}
 									onCloseClick={() =>
 										this.setState({ selectedEvent: {} })
-									}
-								>
+									}>
 									<SelectEventCard
 										name={this.state.selectedEvent.name}
 									/>
 								</InfoWindow>
 							) : null}
+							<KmlLayer
+								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/profile/src/components/Eclipse/Space-Explorer.kml'
+								options={{ preserveViewport: true }}
+							/>
 						</>
 					</GoogleMap>
 				</LoadScript>
@@ -129,4 +156,4 @@ class Eclipse extends Component {
 	}
 }
 
-export default Eclipse;
+export default withAuth0(Eclipse);
