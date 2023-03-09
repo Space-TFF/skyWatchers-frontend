@@ -52,26 +52,13 @@ class Home extends React.Component {
 	render() {
 		return (
 			<>
-				{/* <div> */}
 					<div className='eclipseBackground'>
 						<div className='timer'>
 							<p>Solar Eclipse begins in:</p>
 							<CountdownTimer targetDate='04/08/2024' />
 						</div>
 					</div>
-					{/* <Button variant='outlined' onClick={this.openDrawerEvent}>
-						Drawer
-					</Button>
-					<SideDrawer
-						name={this.state.name}
-						description={this.state.description}
-						city='City'
-						state='State'
-						additionalInfo='Additional Info'
-						openNow={this.state.openDrawer}
-						handleClickClose={this.closeDrawerEvent}
-					/> */}
-				{/* </div> */}
+
 			</>
 		);
 	}
