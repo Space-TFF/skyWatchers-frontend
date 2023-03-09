@@ -28,7 +28,7 @@ const Profile = () => {
           <h2>My Events:</h2>
           <ul>
             <li>Date, Location,  Name of Event</li>
-            <li>Date, Location, Name of Event</li>
+            <li>04/08/2024 Indianapolis Eclipsepalooza</li>
           </ul>
         {/* <MediaCard /> */}
         </div>

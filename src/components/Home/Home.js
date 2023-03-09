@@ -3,9 +3,9 @@ import React from 'react';
 // import SideDrawer from '../Eclipse/SideDrawer.js';
 import CountdownTimer from './CountdownTimer.js';
 import './Home.css';
-import AddEvent from '../Eclipse/AddEvent.js';
-import Button from '@mui/material/Button';
-import Autocomplete from 'react-google-autocomplete';
+// import AddEvent from '../Eclipse/AddEvent.js';
+// import Button from '@mui/material/Button';
+// import Autocomplete from 'react-google-autocomplete';
 class Home extends React.Component {
 	constructor(props) {
 		super(props);

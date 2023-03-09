@@ -13,6 +13,7 @@ import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { Icon } from '@iconify/react';
+import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
 
 const containerStyle = {
 	width: '80vw',
@@ -90,6 +91,9 @@ class Eclipse extends Component {
 		console.log(this.props.auth0.isAuthenticated);
 		return (
 			<>
+
+			        <img src={eclipseBandW2} alt="eclipseBandW2" className="eclipseBandW2" />
+					<h3 className='mapTitle'>Path of Solar Eclipse, April 8, 2024</h3>
 				<AddEvent
 					name='Event Name'
 					description='Description'
