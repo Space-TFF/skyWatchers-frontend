@@ -25,7 +25,7 @@ class AddEvent extends React.Component {
 			name: '',
 			description: '',
 			address: '',
-			email: '', // this will be from auth0
+			email: undefined, // this will be from auth0
 			isPublic: '',
 			lat: '',
 			lng: '',
@@ -72,6 +72,11 @@ class AddEvent extends React.Component {
 		this.setState({ isPublic: event.target.checked });
 	};
 
+	componentDidMount() {
+		if (this.props.auth0.isAuthenticated)
+			this.setState({ email: this.props.auth0.user.email });
+	}
+
 	//when "submit" is clicked on "add event" form
 	handleAddEvent = async (event) => {
 		event.preventDefault();
@@ -86,10 +91,10 @@ class AddEvent extends React.Component {
 				description: this.state.description,
 				address: this.state.address,
 				time: this.state.time,
-				email: this.state.email,
+				email: this.props.auth0.user.email,
 				lat: this.state.lat,
 				lng: this.state.lng,
-				isPublic: this.state.isPublic
+				isPublic: this.state.isPublic,
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -101,7 +106,7 @@ class AddEvent extends React.Component {
 				const config = {
 					method: 'post',
 					baseURL: process.env.REACT_APP_SERVER,
-					url: '/ROUTE',
+					url: '/events',
 					headers: { Authorization: `Bearer ${jwt}` },
 					data: reqBody,
 				};
@@ -146,7 +151,7 @@ class AddEvent extends React.Component {
 				<Button
 					variant='contained'
 					onClick={this.handleClickOpen}>
-					Open form dialog
+					Create your own event!
 				</Button>
 				<Dialog
 					open={open}
@@ -205,16 +210,6 @@ class AddEvent extends React.Component {
 							/>
 						</Autocomplete>
 
-						<TextField
-							autoFocus
-							margin='dense'
-							id='email'
-							label={this.props.email}
-							type='email'
-							fullWidth
-							variant='standard'
-							onChange={this.handleEmailChange}
-						/>
 						<FormGroup>
 							<FormControlLabel
 								control={<Checkbox />}

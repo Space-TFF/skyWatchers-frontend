@@ -11,6 +11,9 @@ import AddEvent from './AddEvent';
 import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
 import axios from 'axios';
+import { withAuth0 } from "@auth0/auth0-react";
+
+
 
 const containerStyle = {
 	width: '80vw',
@@ -72,6 +75,7 @@ class Eclipse extends Component {
 	componentDidMount() {
 		navigator.geolocation.getCurrentPosition(this.success);
 		//TODO: add error handling if the user denies access to their location
+		if(this.props.auth0.isAuthenticated) this.setState({email: this.props.auth0.user.email})
 	}
 
 	getAllEvents = async () => {
@@ -83,6 +87,7 @@ class Eclipse extends Component {
 	};
 
 	render() {
+		console.log(this.props.auth0.isAuthenticated);
 		return (
 			<>
 				<AddEvent
@@ -144,4 +149,4 @@ class Eclipse extends Component {
 	}
 }
 
-export default Eclipse;
+export default withAuth0(Eclipse);
