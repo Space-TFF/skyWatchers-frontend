@@ -128,5 +128,68 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
   Photo by <a href="https://unsplash.com/@davehoefler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Hoefler</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
   
-  
-  
+  ## References
+  [Google Api](https://medium.com/@allynak/how-to-use-google-map-api-in-react-app-edb59f64ac9d)
+
+  [Pair Programming](https://www.codefellows.org/blog/6-reasons-for-pair-programming/)
+
+  [Countdown](https://agatatocz.medium.com/countdown-timer-with-months-using-react-and-moment-js-fa40b86c2dd4)
+
+  [Countdown](https://www.geeksforgeeks.org/how-to-create-a-countdown-timer-using-reactjs/)
+
+  [Camping Sites](https://www.campspot.com/search?location=Marble%20Falls,%20TX&latitude=30.585737&longitude=-98.173442&adults=2&children=0&pets=0)
+
+  [MUI docs](https://mui.com/base/react-click-away-listener/)
+
+  [Click Away docs](https://stackoverflow.com/questions/54060096/close-persistent-mui-drawer-on-clicking-outside)
+
+  [MUI forms click away](https://smartdevpreneur.com/the-essential-guide-to-submitting-mui-forms-2-methods/)
+
+  [Auth0](https://github.com/DeltaV-Instructor/cat-backend-auth)
+
+  [Building headers with css and flexbox](https://ishadeed.com/article/website-headers-flexbox/)
+
+  [Navbar styling with Bootstrap](https://medium.com/nerd-for-tech/navbar-styling-react-with-bootstrap-6c74b0631d04)
+
+  [Navbar styling](https://blog.hubspot.com/website/bootstrap-navbar)
+
+  [Auth0 Dashboard](https://auth0.auth0.com/)
+
+  [React Router Video Demo](https://www.youtube.com/watch?v=XSyXjtQSE9w&list=PLnobwbmmCilRAeQJnu_ilDb5CblCFAcz4&index=51)
+
+  [React Router GitHub Demo Code](https://github.com/DeltaV-Instructor/DEMO-REACT-ROUTER-AUTH/tree/main/src)
+
+  [React Router Header, Footer](https://reactgo.com/reactrouter-header-footer/)
+
+  [Google Maps api](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
+  [Google Maps overlay](https://developers.google.com/maps/documentation/javascript/customoverlays)
+
+  [Solar Eclipse Timer](https://www.solareclipsetimer.com/index.html)
+
+  [Sybiosis Gathering](https://symbiosisgathering.com/connect-2019/)
+
+  [National Eclipse](https://nationaleclipse.com/index.html)
+
+  [Solar Eclipse 2024](https://www.accuweather.com/en/weather-blogs/astronomy/4-years-away-from-the-2024-total-solar-eclilpse/716326)
+
+  [Nasa, Solar Eclipses](https://solarsystem.nasa.gov/eclipses/home/)
+
+  [Where to camp for the Solar Eclipse](https://www.campspot.com/c/where-to-camp-2024-solar-eclipse-path)
+
+[Customizing React Bootstrap](https://react-bootstrap.github.io/getting-started/theming/#new-variants-and-sizes)
+
+[KML layers](https://react-google-maps-api-docs.netlify.app/#kmllayer)
+
+[KML layering in Google maps](https://developers.google.com/maps/documentation/javascript/kmllayer)
+
+[How to use google maps app api in React](https://medium.com/@allynak/how-to-use-google-map-api-in-react-app-edb59f64ac9d)
+
+[parallax](https://www.w3schools.com/howto/howto_css_parallax.asp)
+
+[MUI Sandbox using codepen for forms](https://codesandbox.io/s/billowing-morning-1rhf1z)
+
+[Mui Sand box for card](https://codesandbox.io/s/sad-cartwright-tqdicx?file=/demo.js)
+
+[MUI Sandbox for Event card](https://codesandbox.io/s/hopeful-lamport-3t853z)
+
