@@ -1,4 +1,4 @@
-# 301 Final Project: Space Explorer
+# 301 Final Project: SkyWatchers
 
 ## Team members
 
@@ -15,7 +15,7 @@ Jack Stubblefield, Susan Harguss, Eva Smith
 
 ## Scope (In/Out)
 
-IN - What will your product do
+**IN - What will your product do**
 
  1. Our web app will provide information to the users about the upcoming eclipse in 2024
  2. Our app will allow users to look up details on campsites best suited for eclipse viewing in their selected areas.
@@ -24,7 +24,7 @@ IN - What will your product do
  5. Our app will allow users to communicate with each other on a basic level.
  6. Our app will have safeguards to keep it safe and family friendly.
 
-OUT - What will your product not do.
+**OUT - What will your product not do.**
 
  1. Our product will not include terrestrial events.
  2. Our app will not be officially associated with any organizations or businesses.
@@ -39,10 +39,9 @@ OUT - What will your product not do.
  5. Axios
  6. MongoDB
  7. Netlify
- 8. VS Code
- 9. GitHub
-10. Express
-11. Node
+ 8. GitHub
+09. Express
+10. Node
 
 ## Clearly defined API endpoints with sample responses
 
@@ -56,7 +55,7 @@ REACT_APP_MAP_KEY=
 
 ## Clearly defined database schemas
 
- placeSchema
+ **placeSchema**
     name: {type: String, require: true},
 
     city: {type: String, require: true},
@@ -71,7 +70,7 @@ REACT_APP_MAP_KEY=
 
     email: {type: String, require: true}
 
-userSchema
+**userSchema**
     name: {type: String, require: true},
 
     email: {type: String, require: true},
@@ -140,7 +139,7 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
   Photo by <a href="https://unsplash.com/@marcusdallcol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcus Dall Col</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
   Photo by <a href="https://unsplash.com/@maximebhm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Maxime Bhm</a> on <a href="https://unsplash.com/s/photos/outdoor-festival?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
   Photo by <a href="https://unsplash.com/@davehoefler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Hoefler</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 ## References
