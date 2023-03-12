@@ -54,26 +54,32 @@ REACT_APP_DOMAIN=
 REACT_APP_CLIENTID=
 REACT_APP_MAP_KEY=
 
-
 ## Clearly defined database schemas
 
  placeSchema
     name: {type: String, require: true},
+
     city: {type: String, require: true},
+
     state: {type: String, require: true},
+
     time: {type: String, require: true},
+
     description: {type: String, require: true},
+
     RSVP: {type: Boolean, require: true},
+
     email: {type: String, require: true}
 
 userSchema
     name: {type: String, require: true},
+
     email: {type: String, require: true},
 
-UML
+**UML**
 src/img/UML.png
 
-Wireframe
+**Wireframe**
 src/img/wireframe.jpg
 
 ## Images
@@ -112,23 +118,33 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
   >Boris Štromar</a>
   from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4545727"
   >Pixabay</a>
-  Image by <a href="https://pixabay.com/users/astrobobo-13925790/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4545727">Boris Štromar</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4545727">Pixabay</a>
 
   Image by <a href="https://pixabay.com/users/hans-2/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1061674">Hans</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1061674">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/simaghaffarzadeh-779348/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2689073">Sima Ghaffarzadeh</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2689073">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/pedrofigueras-5229515/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2878729">Pedro Figueras</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2878729">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/davedavidsoncom-4209827/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670218">Dave Davidson</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670218">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/davedavidsoncom-4209827/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670217">Dave Davidson</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670217">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/tramijasmine-6220387/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2662849">tramijasmine</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2662849">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/scratsmacker-16310259/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5159662">Uwe Conrad</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5159662">Pixabay</a>
+
   Image by <a href="https://pixabay.com/users/davedavidsoncom-4209827/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670215">Dave Davidson</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2670215">Pixabay</a>
+
   Photo by <a href="https://unsplash.com/@thejasonhowell?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jason Howell</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
   Photo by <a href="https://unsplash.com/@marcusdallcol?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marcus Dall Col</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
   Photo by <a href="https://unsplash.com/@maximebhm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Maxime Bhm</a> on <a href="https://unsplash.com/s/photos/outdoor-festival?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
   Photo by <a href="https://unsplash.com/@davehoefler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Hoefler</a> on <a href="https://unsplash.com/images/nature/eclipse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
-  
-  ## References
+## References
+
   [Google Api](https://medium.com/@allynak/how-to-use-google-map-api-in-react-app-edb59f64ac9d)
 
   [Pair Programming](https://www.codefellows.org/blog/6-reasons-for-pair-programming/)
@@ -185,6 +201,10 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
 
 [How to use google maps app api in React](https://medium.com/@allynak/how-to-use-google-map-api-in-react-app-edb59f64ac9d)
 
+[Google Maps video Tutorial](https://www.youtube.com/watch?v=9e-5QHpadi0)
+
+[Google Maps libraries](https://developers.google.com/maps/documentation/javascript/libraries-open-source)
+
 [parallax](https://www.w3schools.com/howto/howto_css_parallax.asp)
 
 [MUI Sandbox using codepen for forms](https://codesandbox.io/s/billowing-morning-1rhf1z)
@@ -193,3 +213,10 @@ Photo by <a href="https://unsplash.com/@sarahleejs?utm_source=unsplash&utm_mediu
 
 [MUI Sandbox for Event card](https://codesandbox.io/s/hopeful-lamport-3t853z)
 
+[MUI Sandbox form](https://codesandbox.io/s/relaxed-bush-uniub2)
+
+[Learn MUI and react video](https://www.youtube.com/watch?v=v_A0wJDV5AU)
+
+[MUI Documentation](https://mui.com/material-ui/react-typography/)
+
+[space apis](https://nordicapis.com/11-space-apis-because-space-is-neat/)

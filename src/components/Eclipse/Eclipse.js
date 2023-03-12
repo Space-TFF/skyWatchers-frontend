@@ -14,7 +14,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import { SampleEvents } from '../CampSeedInfo/SampleEvents';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
-import { Container } from '@mui/material';
+
 
 const containerStyle = {
 	width: '80vw',
