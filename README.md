@@ -1,4 +1,4 @@
-# 301 Final Project: SkyWatchers
+# SkyWatchers
 
 ## Team members
 
