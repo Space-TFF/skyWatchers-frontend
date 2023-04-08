@@ -21,7 +21,7 @@ class Header extends React.Component {
                         className="d-inline-block align-top"
                         alt="Nebula"
                     />
-                    <h1>SkyWatcher</h1>
+                    <h1>SkyWatchers</h1>
                 </div>
                 <div className='links'>
                     <NavLink className='link' to='/'>Home</NavLink>
