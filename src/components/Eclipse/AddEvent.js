@@ -77,7 +77,7 @@ class AddEvent extends React.Component {
 			this.setState({ email: this.props.auth0.user.email });
 	}
 
-	//when "submit" is clicked on "add event" form
+	//!when "submit" is clicked on "add event" form MUST BE LOGGED IN
 	handleAddEvent = async (event) => {
 		event.preventDefault();
 		console.log('handleAddEvent' + this.state.name);
@@ -91,7 +91,7 @@ class AddEvent extends React.Component {
 				description: this.state.description,
 				address: this.state.address,
 				// time: this.state.time,
-				// email: this.props.auth0.user.email,
+				email: this.props.auth0.user.email,
 				lat: this.state.lat,
 				lng: this.state.lng,
 				isPublic: this.state.isPublic,
