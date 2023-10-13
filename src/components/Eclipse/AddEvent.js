@@ -22,7 +22,7 @@ class AddEvent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
+			name: '', //event props
 			description: '',
 			address: '',
 			email: undefined, // this will be from auth0
@@ -30,7 +30,7 @@ class AddEvent extends React.Component {
 			lat: '',
 			lng: '',
 			time: '',
-			open: false,
+			open: false, // non-event related props start here
 			error: false,
 			errorMessage: '',
 		};
