@@ -90,8 +90,8 @@ class AddEvent extends React.Component {
 				name: this.state.name,
 				description: this.state.description,
 				address: this.state.address,
-				time: this.state.time,
-				email: this.props.auth0.user.email,
+				// time: this.state.time,
+				// email: this.props.auth0.user.email,
 				lat: this.state.lat,
 				lng: this.state.lng,
 				isPublic: this.state.isPublic,
@@ -115,6 +115,8 @@ class AddEvent extends React.Component {
 				let axiosData = await axios(config).then((res) => {
 					console.log('yoyoyo', res.data);
 				});
+
+				console.log(axiosData);
 			}
 		} catch (error) {
 			this.setState({
@@ -135,7 +137,7 @@ class AddEvent extends React.Component {
 		if (this.autocomplete !== null) {
 			console.log(this.autocomplete.getPlace());
 			let query = this.autocomplete.getPlace();
-			this.setState({
+			this.setState({ 
 				address: query.formatted_address,
 				lat: query.geometry.location.lat(),
 				lng: query.geometry.location.lng(),

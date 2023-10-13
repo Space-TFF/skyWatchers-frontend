@@ -3,7 +3,7 @@ import {
 	GoogleMap,
 	LoadScript,
 	Marker,
-	InfoWindow,
+	InfoWindow
 } from '@react-google-maps/api';
 import { MapConfig } from './MapConfig';
 import SelectEventCard from './SelectEventCard';
@@ -12,14 +12,12 @@ import { KmlLayer } from '@react-google-maps/api';
 import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
-// import { SampleEvents } from '../CampSeedInfo/SampleEvents';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
-
 
 const containerStyle = {
 	width: '80vw',
 	height: '80vh',
-	margin: '4em auto',
+	margin: '4em auto'
 };
 
 class Eclipse extends Component {
@@ -28,7 +26,7 @@ class Eclipse extends Component {
 		this.state = {
 			currentLocation: {},
 			selectedEvent: {},
-			publicEvents: [],
+			publicEvents: []
 		};
 	}
 
@@ -39,7 +37,7 @@ class Eclipse extends Component {
 	success = (position) => {
 		const currentLocation = {
 			lat: position.coords.latitude,
-			lng: position.coords.longitude,
+			lng: position.coords.longitude
 		};
 		this.setState({ currentLocation: currentLocation });
 	};
@@ -66,7 +64,7 @@ class Eclipse extends Component {
 
 	render() {
 		console.log(this.props.auth0.isAuthenticated);
-		// console.log(SampleEvents);
+
 		return (
 			<>
 				<img
@@ -107,11 +105,11 @@ class Eclipse extends Component {
 										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
 										position={{
 											lat: event.lat,
-											lng: event.lng,
+											lng: event.lng
 										}}
 										onClick={() =>
 											this.setState({
-												selectedEvent: event,
+												selectedEvent: event
 											})
 										}
 									/>
@@ -125,11 +123,11 @@ class Eclipse extends Component {
 										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
 										position={{
 											lat: publicEvent.lat,
-											lng: publicEvent.lng,
+											lng: publicEvent.lng
 										}}
 										onClick={() =>
 											this.setState({
-												selectedEvent: publicEvent,
+												selectedEvent: publicEvent
 											})
 										}
 									/>
@@ -140,7 +138,7 @@ class Eclipse extends Component {
 								<InfoWindow
 									position={{
 										lat: this.state.selectedEvent.lat,
-										lng: this.state.selectedEvent.lng,
+										lng: this.state.selectedEvent.lng
 									}}
 									clickable={true}
 									onCloseClick={() =>
