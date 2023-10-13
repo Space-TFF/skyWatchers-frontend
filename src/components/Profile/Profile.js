@@ -1,45 +1,63 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
+import { useAuth0 } from '@auth0/auth0-react';
+import React, { useState, useEffect } from 'react';
 // import MediaCard from "../Eclipse/SelectEventCard";
-import './Profile.css'
+import './Profile.css';
+import axios from 'axios';
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+	const [events, setEvents] = useState([]);
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+	const getUserEvents = async (user) => {
+		let response = await axios.get(
+			`${process.env.REACT_APP_SERVER}/events`
+		);
 
-  return (
+		setEvents([...response.data]);
+		console.log('Events from server', response.data);
+	};
 
-      isAuthenticated && (
+	useEffect(() => {
+		getUserEvents();
+		// this.setState({ publicEvents: response.data }
+	}, []);
 
-   
+	const { user, isAuthenticated, isLoading } = useAuth0();
 
-<>
-<div className="wrapped">
-          <div className="user">
-          <img src={user.picture} alt={user.name} />
-          <div className="userInfo">
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-          </div>
-          </div>
-          <div className="eventDiv">
-          <h2>My Events:</h2>
-          <ul>
-            <li>Date, Location,  Name of Event</li>
-            <li>04/08/2024 Indianapolis Eclipsepalooza</li>
-          </ul>
-        {/* <MediaCard /> */}
-        </div>
-        </div>
-                <div className="profileBackground">
-        </div>
-        </>
-      )
+	if (isLoading) {
+		return <div>Loading ...</div>;
+	}
 
-  );
+	return (
+		isAuthenticated && (
+			<>
+				<div className='wrapped'>
+					<div className='user'>
+						<img
+							src={user.picture}
+							alt={user.name}
+						/>
+						<div className='userInfo'>
+							<h2>{user.name}</h2>
+							<p>{user.email}</p>
+						</div>
+					</div>
+					<div className='eventDiv'>
+						<h2>My Events:</h2>
+						<ul> 
+							{events.map((event) => (
+								<>
+									<li>{event.name}</li>
+									<li>{event.address}</li>
+									<li>{event.description}</li>
+								</>
+							))}
+						</ul>
+						{/* <MediaCard /> */}
+					</div>
+				</div>
+				<div className='profileBackground'></div>
+			</>
+		)
+	);
 };
 
 export default Profile;
-
