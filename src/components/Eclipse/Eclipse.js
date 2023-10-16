@@ -13,6 +13,7 @@ import './Eclipse.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
+import EventList from '../EventList/EventList';
 
 const containerStyle = {
 	width: '80vw',
@@ -24,7 +25,9 @@ class Eclipse extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: {},
+			currentLocation: {
+
+			},
 			selectedEvent: {},
 			publicEvents: []
 		};
@@ -63,8 +66,6 @@ class Eclipse extends Component {
 	};
 
 	render() {
-		console.log(this.props.auth0.isAuthenticated);
-
 		return (
 			<>
 				<img
@@ -161,6 +162,7 @@ class Eclipse extends Component {
 						</>
 					</GoogleMap>
 				</LoadScript>
+				<EventList events={this.state.publicEvents} />
 			</>
 		);
 	}
