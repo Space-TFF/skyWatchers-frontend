@@ -16,7 +16,6 @@ export default function EventList(props) {
 			}}>
 			{props.events.map((event) => (
 				<ListItem>
-					<Box sx={{}}>
 						<Paper
 							elevation={10}
 							square={false}
@@ -30,7 +29,6 @@ export default function EventList(props) {
 							}}>
 							<ListItemText>{event.name}</ListItemText>
 						</Paper>
-					</Box>
 				</ListItem>
 			))}
 		</List>
