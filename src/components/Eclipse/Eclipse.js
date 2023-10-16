@@ -14,6 +14,7 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import eclipseBandW2 from '../../img/eclipseBandW2.jpg';
 import EventList from '../EventList/EventList';
+import { Container } from '@mui/material';
 
 const containerStyle = {
 	width: '80vw',
@@ -25,9 +26,7 @@ class Eclipse extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: {
-
-			},
+			currentLocation: {},
 			selectedEvent: {},
 			publicEvents: []
 		};
@@ -77,7 +76,7 @@ class Eclipse extends Component {
 					Path of Solar Eclipse, April 8, 2024
 				</h3>
 
-				<AddEvent
+				{/* <AddEvent
 					name='Event Name'
 					description='Description'
 					city='City'
@@ -85,84 +84,93 @@ class Eclipse extends Component {
 					email='email'
 					open={this.state.openAdd}
 					handleClickClose={this.handleClickClose}
-				/>
+				/> */}
+				<Container
+					sx={{
+						display: 'flex',
+						flexGrow: '1',
+						padding: '0px'
+					}}>
+					<LoadScript
+						googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
+						libraries={['places', 'geometry']}>
+						<GoogleMap
+							mapContainerStyle={containerStyle}
+							center={this.state.currentLocation}
+							zoom={10}
+							onLoad={this.getAllEvents}
+							options={{ styles: MapConfig.stylesArray }}>
+							{/* Child components, such as markers, info windows, etc. */}
+							<>
+								<Marker position={this.state.currentLocation} />
+								{this.state.publicEvents.map((event) => {
+									return (
+										<Marker
+											key={event.name}
+											// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
+											position={{
+												lat: event.lat,
+												lng: event.lng
+											}}
+											onClick={() =>
+												this.setState({
+													selectedEvent: event
+												})
+											}
+										/>
+									);
+								})}
 
-				<LoadScript
-					googleMapsApiKey={process.env.REACT_APP_MAP_KEY}
-					libraries={['places', 'geometry']}>
-					<GoogleMap
-						mapContainerStyle={containerStyle}
-						center={this.state.currentLocation}
-						zoom={10}
-						onLoad={this.getAllEvents}
-						options={{ styles: MapConfig.stylesArray }}>
-						{/* Child components, such as markers, info windows, etc. */}
-						<>
-							<Marker position={this.state.currentLocation} />
-							{this.state.publicEvents.map((event) => {
-								return (
-									<Marker
-										key={event.name}
-										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
+								{this.state.publicEvents.map((publicEvent) => {
+									return (
+										<Marker
+											key={[publicEvent].name}
+											// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
+											position={{
+												lat: publicEvent.lat,
+												lng: publicEvent.lng
+											}}
+											onClick={() =>
+												this.setState({
+													selectedEvent: publicEvent
+												})
+											}
+										/>
+									);
+								})}
+
+								{this.state.selectedEvent.name ? (
+									<InfoWindow
 										position={{
-											lat: event.lat,
-											lng: event.lng
+											lat: this.state.selectedEvent.lat,
+											lng: this.state.selectedEvent.lng
 										}}
-										onClick={() =>
-											this.setState({
-												selectedEvent: event
-											})
-										}
-									/>
-								);
-							})}
+										clickable={true}
+										onCloseClick={() =>
+											this.setState({ selectedEvent: {} })
+										}>
+										<SelectEventCard
+											name={this.state.selectedEvent.name}
+											description={
+												this.state.selectedEvent
+													.description
+											}
+											image={
+												this.state.selectedEvent.image
+											}
+										/>
+									</InfoWindow>
+								) : null}
 
-							{this.state.publicEvents.map((publicEvent) => {
-								return (
-									<Marker
-										key={[publicEvent].name}
-										// icon='https://www.svgrepo.com/show/320718/eclipse.svg'
-										position={{
-											lat: publicEvent.lat,
-											lng: publicEvent.lng
-										}}
-										onClick={() =>
-											this.setState({
-												selectedEvent: publicEvent
-											})
-										}
-									/>
-								);
-							})}
-
-							{this.state.selectedEvent.name ? (
-								<InfoWindow
-									position={{
-										lat: this.state.selectedEvent.lat,
-										lng: this.state.selectedEvent.lng
-									}}
-									clickable={true}
-									onCloseClick={() =>
-										this.setState({ selectedEvent: {} })
-									}>
-									<SelectEventCard
-										name={this.state.selectedEvent.name}
-										description={
-											this.state.selectedEvent.description
-										}
-										image={this.state.selectedEvent.image}
-									/>
-								</InfoWindow>
-							) : null}
-
-							<KmlLayer
-								url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/dev/src/components/Eclipse/Totality.kml'
-								options={{ preserveViewport: true }}
-							/>
-						</>
-					</GoogleMap>
-				</LoadScript>
-				<EventList events={this.state.publicEvents} />
+								<KmlLayer
+									url='https://raw.githubusercontent.com/Space-TFF/space-explorer-frontend/dev/src/components/Eclipse/Totality.kml'
+									options={{ preserveViewport: true }}
+								/>
+							</>
+						</GoogleMap>
+					</LoadScript>
+					<EventList events={this.state.publicEvents} />
+				</Container>
 			</>
 		);
 	}
