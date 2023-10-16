@@ -1,4 +1,4 @@
-.profileBackground{
+.profileBackground {
     background-image: url('../../img/telescope.jpg');
     background-size: cover;
     background-position: center, center;
@@ -14,21 +14,21 @@
     color: white;
 }
 
-.userInfo{
+.userInfo {
     color: white;
 }
 
-.user{
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: rgb(15, 7, 49);
-/* font-family: 'Tilt Neon', cursive; */
-color:white;
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(15, 7, 49);
+    /* font-family: 'Tilt Neon', cursive; */
+    color: white;
 }
 
-.eventDiv{
-    display: flex;
+.eventDiv {
+    display: block;
     padding-right: 3rem;
-    background-color:  rgb(15, 7, 49);
+    background-color: rgb(15, 7, 49);
 }
