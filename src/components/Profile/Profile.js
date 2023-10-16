@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState, useEffect } from 'react';
-// import MediaCard from "../Eclipse/SelectEventCard";
 import './Profile.css';
 import axios from 'axios';
 import EventList from '../EventList/EventList';
@@ -41,10 +40,14 @@ const Profile = () => {
 							<p>{user.email}</p>
 						</div>
 					</div>
+
+					{/* Events I want to go to: */}
 					<div className='eventDiv'>
-						<h2>My Events:</h2>
+						<h2>Events I'm Hosting:</h2>
 						<EventList events={events} />
-						{/* <MediaCard /> */}
+						{/* Events I am hosting: */}
+						<h2>Events I want to attend:</h2>
+						<EventList events={events} />
 					</div>
 				</div>
 				<div className='profileBackground'></div>

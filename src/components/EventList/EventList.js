@@ -26,8 +26,6 @@ export default function EventList(props) {
 						elevation={10}
 						square={false}
 						sx={{
-							// display: 'flex',
-							// flexWrap: 'wrap',
 							width: '600px',
 							height: '150px',
 							backgroundColor: '#C2FBEF9',
