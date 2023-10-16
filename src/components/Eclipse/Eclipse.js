@@ -67,14 +67,14 @@ class Eclipse extends Component {
 	render() {
 		return (
 			<>
-				<img
+				{/* <img
 					src={eclipseBandW2}
 					alt='eclipseBandW2'
 					className='eclipseBandW2'
 				/>
 				<h3 className='mapTitle'>
 					Path of Solar Eclipse, April 8, 2024
-				</h3>
+				</h3> */}
 
 				{/* <AddEvent
 					name='Event Name'
