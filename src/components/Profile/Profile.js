@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import MediaCard from "../Eclipse/SelectEventCard";
 import './Profile.css';
 import axios from 'axios';
+import EventList from '../EventList/EventList';
 const Profile = () => {
 	const [events, setEvents] = useState([]);
 
@@ -42,15 +43,7 @@ const Profile = () => {
 					</div>
 					<div className='eventDiv'>
 						<h2>My Events:</h2>
-						<ul> 
-							{events.map((event) => (
-								<>
-									<li>{event.name}</li>
-									<li>{event.address}</li>
-									<li>{event.description}</li>
-								</>
-							))}
-						</ul>
+						<EventList events={events} />
 						{/* <MediaCard /> */}
 					</div>
 				</div>
