@@ -32,7 +32,7 @@ class AddEvent extends React.Component {
 			time: '',
 			open: false, // non-event related props start here
 			error: false,
-			errorMessage: '',
+			errorMessage: ''
 		};
 
 		this.autocomplete = null;
@@ -94,7 +94,7 @@ class AddEvent extends React.Component {
 				email: this.props.auth0.user.email,
 				lat: this.state.lat,
 				lng: this.state.lng,
-				isPublic: this.state.isPublic,
+				isPublic: this.state.isPublic
 			};
 			console.log('POST reqBody', reqBody);
 
@@ -108,7 +108,7 @@ class AddEvent extends React.Component {
 					baseURL: process.env.REACT_APP_SERVER,
 					url: '/events',
 					headers: { Authorization: `Bearer ${jwt}` },
-					data: reqBody,
+					data: reqBody
 				};
 				console.log('YO', config);
 
@@ -121,7 +121,7 @@ class AddEvent extends React.Component {
 		} catch (error) {
 			this.setState({
 				error: true,
-				errorMessage: `An error occurred: ${error}`,
+				errorMessage: `An error occurred: ${error}`
 			});
 			console.log('post error' + error);
 		}
@@ -137,10 +137,10 @@ class AddEvent extends React.Component {
 		if (this.autocomplete !== null) {
 			console.log(this.autocomplete.getPlace());
 			let query = this.autocomplete.getPlace();
-			this.setState({ 
+			this.setState({
 				address: query.formatted_address,
 				lat: query.geometry.location.lat(),
-				lng: query.geometry.location.lng(),
+				lng: query.geometry.location.lng()
 			});
 		} else {
 			console.log('Autocomplete is not loaded yet!');
