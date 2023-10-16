@@ -17,9 +17,9 @@ import EventList from '../EventList/EventList';
 import { Container } from '@mui/material';
 
 const containerStyle = {
-	width: '80vw',
+	width: '70vw',
 	height: '80vh',
-	margin: '4em auto'
+	margin: '1.5rem'
 };
 
 class Eclipse extends Component {
