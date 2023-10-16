@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import { Paper } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 
 export default function EventList(props) {
 	return (
@@ -18,19 +18,32 @@ export default function EventList(props) {
 				margin: '1rem'
 			}}>
 			{props.events.map((event) => (
-				<ListItem>
+				<ListItem
+					sx={{
+						textAlign: 'left'
+					}}>
 					<Paper
 						elevation={10}
 						square={false}
 						sx={{
-							display: 'flex',
-							flexWrap: 'wrap',
+							// display: 'flex',
+							// flexWrap: 'wrap',
 							width: '600px',
 							height: '150px',
-							bgcolor: 'gray',
-							padding: '1em'
+							backgroundColor: '#C2FBEF9',
+							padding: '.5em'
 						}}>
-						<ListItemText>{event.name}</ListItemText>
+						<ListItemText
+							primary={event.name}
+							secondary={event.address}
+						/>
+						<Divider
+							sx={{
+								borderColor: 'black'
+							}}
+						/>
+
+						<ListItemText primary={event.description} />
 					</Paper>
 				</ListItem>
 			))}

@@ -20,6 +20,8 @@
 
 }
 
-p{
+
+/*! Blanket css statements mess with several MUI components, try to be more specific -Jack
+/* p{
     text-align: center;
-}
+} */
