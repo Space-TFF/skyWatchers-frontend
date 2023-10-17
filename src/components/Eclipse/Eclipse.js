@@ -26,7 +26,10 @@ class Eclipse extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: {},
+			currentLocation: {
+				lat: 41.969093639498986,
+				lng: -91.68121337301862
+			},
 			selectedEvent: {},
 			publicEvents: []
 		};
@@ -42,7 +45,10 @@ class Eclipse extends Component {
 			lng: position.coords.longitude
 		};
 		this.setState({ currentLocation: currentLocation });
-		localStorage.setItem('lastKnownLocation', JSON.stringify(currentLocation) );
+		localStorage.setItem(
+			'lastKnownLocation',
+			JSON.stringify(currentLocation)
+		);
 	};
 
 	/**
@@ -50,13 +56,15 @@ class Eclipse extends Component {
 	 * * This uses the javascript geolocation api: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API
 	 */
 	componentDidMount() {
-		let lastKnownLocation = JSON.parse(localStorage.getItem('lastKnownLocation')); // check Local Storage
+		let lastKnownLocation = JSON.parse(
+			localStorage.getItem('lastKnownLocation')
+		); // check Local Storage
 
 		if (!lastKnownLocation) {
 			navigator.geolocation.getCurrentPosition(this.success); // if local storage is empty, ask for location
 		}
 
-		this.setState({currentLocation: lastKnownLocation})
+		this.setState({ currentLocation: lastKnownLocation });
 
 		//TODO: add error handling if the user denies access to their location
 		//TODO: Or just add a default lmfao
@@ -65,7 +73,7 @@ class Eclipse extends Component {
 	}
 
 	getAllEvents = async () => {
-		let cachedEvents = JSON.parse(localStorage.getItem('cachedEvents'))
+		let cachedEvents = JSON.parse(localStorage.getItem('cachedEvents'));
 
 		if (!cachedEvents) {
 			let response = await axios.get(
